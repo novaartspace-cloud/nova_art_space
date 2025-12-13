@@ -1,5 +1,6 @@
 import Navigation from "../components/Navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   IconPalette,
   IconEye,
@@ -49,25 +50,43 @@ export default function ZaNas() {
 
         {/* Основен текст */}
         <div className="mb-20 bg-gradient-to-br from-[#E8E8E8]/30 to-transparent rounded-lg p-8 md:p-12 border border-[#E8E8E8]">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
-            nOva art space: Галерия, която изгражда нов контекст за изкуството.
-          </h2>
-          <div className="space-y-6">
-            <p className="text-lg text-[#495464]/80 leading-relaxed">
-              nOva art space е съвременно културно пространство, изградено върху
-              повече от две десетилетия традиция, професионализъм и отдаденост
-              към изкуството. Разположена на престижния адрес ул. „Съборна" № 3,
-              в самото сърце на София, галерията е сцена, на която класическото
-              и съвременното изкуство живеят в нов, разширен контекст.
-            </p>
-            <p className="text-lg text-[#495464]/80 leading-relaxed">
-              След трансформацията си през 2025 г. пространството предлага над
-              400 кв.м модерна изложбена площ и над 100 метра експозиционни
-              възможности, допълнени от професионално осветление, озвучаване,
-              мултимедия и подиум сцена – създавайки условия за изложби,
-              премиери, концерти, литературни формати и корпоративни събития на
-              премиум ниво.
-            </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Left side - Text content */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
+                nOva art space: Галерия, която изгражда нов контекст за
+                изкуството.
+              </h2>
+              <div className="space-y-6">
+                <p className="text-lg text-[#495464]/80 leading-relaxed">
+                  nOva art space е съвременно културно пространство, изградено
+                  върху повече от две десетилетия традиция, професионализъм и
+                  отдаденост към изкуството. Разположена на престижния адрес ул.
+                  „Съборна" № 3, в самото сърце на София, галерията е сцена, на
+                  която класическото и съвременното изкуство живеят в нов,
+                  разширен контекст.
+                </p>
+                <p className="text-lg text-[#495464]/80 leading-relaxed">
+                  След трансформацията си през 2025 г. пространството предлага
+                  над 400 кв.м модерна изложбена площ и над 100 метра
+                  експозиционни възможности, допълнени от професионално
+                  осветление, озвучаване, мултимедия и подиум сцена – създавайки
+                  условия за изложби, премиери, концерти, литературни формати и
+                  корпоративни събития на премиум ниво.
+                </p>
+              </div>
+            </div>
+
+            {/* Right side - Image */}
+            <div className="rounded-lg overflow-hidden">
+              <Image
+                src="/vhod.webp"
+                alt="nOva art space вход"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover"
+              />
+            </div>
           </div>
         </div>
 

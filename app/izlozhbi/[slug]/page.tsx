@@ -148,13 +148,16 @@ export default async function ExhibitionDetail({ params }: PageProps) {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {exhibition.images.map((image, idx) => (
-                <div key={idx} className="rounded-lg overflow-hidden">
+                <div
+                  key={idx}
+                  className="rounded-lg overflow-hidden aspect-[4/3]"
+                >
                   <Image
                     src={image}
                     alt={`${exhibition.title} - Снимка ${idx + 1}`}
                     width={400}
                     height={300}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               ))}
