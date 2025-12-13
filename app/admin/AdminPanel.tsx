@@ -37,6 +37,7 @@ export default function AdminPanel() {
     slug: "",
     images: ["", "", "", "", ""],
   });
+  const [uploading, setUploading] = useState<string | null>(null); // Track which field is uploading
 
   useEffect(() => {
     fetchExhibitions();
@@ -196,6 +197,99 @@ export default function AdminPanel() {
     setFormData({ ...formData, images: newImages });
   };
 
+  const handleFileUpload = async (
+    file: File,
+    field: "main_image" | `image_${1 | 2 | 3 | 4 | 5}`
+  ) => {
+    const fieldKey = field === "main_image" ? "main_image" : field;
+    setUploading(fieldKey);
+
+    try {
+      // Validate file size (max 10MB)
+      if (file.size > 10 * 1024 * 1024) {
+        alert("Файлът е твърде голям. Максималният размер е 10MB.");
+        setUploading(null);
+        return;
+      }
+
+      // Validate file type
+      if (!file.type.startsWith("image/")) {
+        alert("Моля, качи само снимки.");
+        setUploading(null);
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error("Upload error response:", data);
+        alert(data.error || "Грешка при качване на снимката");
+        setUploading(null);
+        return;
+      }
+
+      if (!data.url) {
+        console.error("No URL in response:", data);
+        alert("Грешка: URL не беше върнат от сървъра");
+        setUploading(null);
+        return;
+      }
+
+      // Update the appropriate field
+      if (field === "main_image") {
+        setFormData((prev) => ({ ...prev, main_image: data.url }));
+      } else {
+        // Extract index from field name (e.g., "image_1" -> 0, "image_2" -> 1)
+        const match = field.match(/image_(\d+)/);
+        if (!match) {
+          console.error("Invalid field format:", field);
+          alert("Грешка: Невалиден формат на полето");
+          setUploading(null);
+          return;
+        }
+        const imageIndex = parseInt(match[1]) - 1;
+
+        // Use functional update to ensure we have the latest state
+        setFormData((prev) => {
+          // Ensure images array exists
+          const currentImages = prev.images || ["", "", "", "", ""];
+
+          if (imageIndex < 0 || imageIndex >= currentImages.length) {
+            console.error(
+              "Invalid image index:",
+              imageIndex,
+              "Array length:",
+              currentImages.length
+            );
+            alert("Грешка: Невалиден индекс на снимката");
+            return prev; // Return unchanged state
+          }
+
+          const newImages = [...currentImages];
+          newImages[imageIndex] = data.url;
+          return { ...prev, images: newImages };
+        });
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert(
+        `Грешка при качване на снимката: ${
+          error instanceof Error ? error.message : "Неизвестна грешка"
+        }`
+      );
+    } finally {
+      setUploading(null);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
@@ -293,16 +387,41 @@ export default function AdminPanel() {
 
               <div>
                 <label className="block text-sm font-medium text-[#495464] mb-1">
-                  Главна снимка (URL)
+                  Главна снимка
                 </label>
-                <input
-                  type="url"
-                  value={formData.main_image}
-                  onChange={(e) =>
-                    setFormData({ ...formData, main_image: e.target.value })
-                  }
-                  className="w-full px-4 py-2 border border-[#E8E8E8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#495464]"
-                />
+                <div className="space-y-2">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        handleFileUpload(file, "main_image");
+                      }
+                    }}
+                    disabled={uploading === "main_image"}
+                    className="w-full px-4 py-2 border border-[#E8E8E8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#495464] disabled:opacity-50"
+                  />
+                  {uploading === "main_image" && (
+                    <p className="text-sm text-[#495464]/70">Качване...</p>
+                  )}
+                  <input
+                    type="url"
+                    value={formData.main_image}
+                    onChange={(e) =>
+                      setFormData({ ...formData, main_image: e.target.value })
+                    }
+                    placeholder="Или въведи URL директно"
+                    className="w-full px-4 py-2 border border-[#E8E8E8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#495464]"
+                  />
+                  {formData.main_image && (
+                    <img
+                      src={formData.main_image}
+                      alt="Preview"
+                      className="w-full h-48 object-cover rounded-lg border border-[#E8E8E8]"
+                    />
+                  )}
+                </div>
               </div>
 
               <div>
@@ -368,17 +487,50 @@ export default function AdminPanel() {
 
               <div>
                 <label className="block text-sm font-medium text-[#495464] mb-2">
-                  Снимки (URL-и, по една на ред)
+                  Снимки за галерията
                 </label>
                 {formData.images.map((image, index) => (
-                  <input
-                    key={index}
-                    type="url"
-                    value={image}
-                    onChange={(e) => handleImageChange(index, e.target.value)}
-                    placeholder={`Снимка ${index + 1} (URL)`}
-                    className="w-full px-4 py-2 border border-[#E8E8E8] rounded-lg mb-2 focus:outline-none focus:ring-2 focus:ring-[#495464]"
-                  />
+                  <div key={index} className="mb-4 space-y-2">
+                    <div className="flex gap-2">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            handleFileUpload(
+                              file,
+                              `image_${index + 1}` as `image_${
+                                | 1
+                                | 2
+                                | 3
+                                | 4
+                                | 5}`
+                            );
+                          }
+                        }}
+                        disabled={uploading === `image_${index + 1}`}
+                        className="flex-1 px-4 py-2 border border-[#E8E8E8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#495464] disabled:opacity-50"
+                      />
+                    </div>
+                    {uploading === `image_${index + 1}` && (
+                      <p className="text-sm text-[#495464]/70">Качване...</p>
+                    )}
+                    <input
+                      type="url"
+                      value={image}
+                      onChange={(e) => handleImageChange(index, e.target.value)}
+                      placeholder={`Снимка ${index + 1} (URL или качи файл)`}
+                      className="w-full px-4 py-2 border border-[#E8E8E8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#495464]"
+                    />
+                    {image && (
+                      <img
+                        src={image}
+                        alt={`Preview ${index + 1}`}
+                        className="w-full h-32 object-cover rounded-lg border border-[#E8E8E8]"
+                      />
+                    )}
+                  </div>
                 ))}
               </div>
 
