@@ -91,3 +91,4 @@ CREATE POLICY "Allow authenticated users to manage images"
 -- Add comments to tables
 COMMENT ON TABLE exhibitions IS 'Stores exhibition data with dates, positioning, and main image';
 COMMENT ON TABLE exhibition_images IS 'Stores gallery images for exhibitions with ordering';
+

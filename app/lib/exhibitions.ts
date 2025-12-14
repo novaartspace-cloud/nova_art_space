@@ -160,3 +160,4 @@ export async function getExhibitionBySlug(slug: string): Promise<Exhibition | nu
     return null;
   }
 }
+

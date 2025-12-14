@@ -176,3 +176,4 @@ export default async function ExhibitionDetail({ params }: PageProps) {
     </div>
   );
 }
+
