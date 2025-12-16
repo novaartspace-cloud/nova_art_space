@@ -1,6 +1,6 @@
-import Navigation from "../../../components/Navigation";
+import Navigation from "../../components/Navigation";
 import Link from "next/link";
-import { getNews } from "../../../lib/news";
+import { getNews } from "../../lib/news";
 import Image from "next/image";
 
 // Force dynamic rendering to always fetch fresh data
