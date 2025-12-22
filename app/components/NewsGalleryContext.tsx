@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
 
 interface NewsGalleryContextType {
   allImages: string[];
@@ -8,7 +8,7 @@ interface NewsGalleryContextType {
   lightboxOpen: boolean;
   setLightboxOpen: (open: boolean) => void;
   currentImageIndex: number;
-  setCurrentImageIndex: (index: number) => void;
+  setCurrentImageIndex: Dispatch<SetStateAction<number>>;
 }
 
 const NewsGalleryContext = createContext<NewsGalleryContextType | undefined>(
