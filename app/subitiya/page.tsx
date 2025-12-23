@@ -145,6 +145,94 @@ export default function Subitiya() {
           галерия и въздействието на премиум локация.
         </h2>
 
+        {/* Gallery Overview */}
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-12 h-0.5 bg-[#495464]"></span>
+            <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
+              Галерия
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Link
+              href="#koncert"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('koncert');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
+            >
+              <Image
+                src="/concertmain.jpg"
+                alt="Концерт"
+                width={400}
+                height={300}
+                className="w-full h-auto object-contain"
+              />
+            </Link>
+            <Link
+              href="#kokteil"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('kokteil');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
+            >
+              <Image
+                src="/coctailmain.jpg"
+                alt="Коктейл"
+                width={400}
+                height={300}
+                className="w-full h-auto object-contain"
+              />
+            </Link>
+            <Link
+              href="#seminar"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('seminar');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
+            >
+              <Image
+                src="/seminarmain.jpg"
+                alt="Семинар"
+                width={400}
+                height={300}
+                className="w-full h-auto object-contain"
+              />
+            </Link>
+            <Link
+              href="#produkt"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('produkt');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
+            >
+              <Image
+                src="/productmain.jpg"
+                alt="Продукт"
+                width={400}
+                height={300}
+                className="w-full h-auto object-contain"
+              />
+            </Link>
+          </div>
+        </div>
+
         {/* Какво предлагаме */}
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-8">
@@ -337,66 +425,6 @@ export default function Subitiya() {
               />
             </svg>
           </Link>
-        </div>
-
-        {/* Gallery Overview */}
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="w-12 h-0.5 bg-[#495464]"></span>
-            <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
-              Галерия
-            </span>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link
-              href="#koncert"
-              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
-            >
-              <Image
-                src="/concertmain.jpg"
-                alt="Концерт"
-                width={400}
-                height={300}
-                className="w-full h-auto object-contain"
-              />
-            </Link>
-            <Link
-              href="#kokteil"
-              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
-            >
-              <Image
-                src="/coctailmain.jpg"
-                alt="Коктейл"
-                width={400}
-                height={300}
-                className="w-full h-auto object-contain"
-              />
-            </Link>
-            <Link
-              href="#seminar"
-              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
-            >
-              <Image
-                src="/seminarmain.jpg"
-                alt="Семинар"
-                width={400}
-                height={300}
-                className="w-full h-auto object-contain"
-              />
-            </Link>
-            <Link
-              href="#produkt"
-              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
-            >
-              <Image
-                src="/productmain.jpg"
-                alt="Продукт"
-                width={400}
-                height={300}
-                className="w-full h-auto object-contain"
-              />
-            </Link>
-          </div>
         </div>
 
         {/* Concert Gallery Section */}
