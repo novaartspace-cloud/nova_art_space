@@ -39,10 +39,86 @@ export default async function Home() {
       <Navigation />
       <MainSlider slides={carouselSlides} />
 
+      {/* За нас */}
+      <section className="py-20 bg-white relative">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[#E8E8E8] rounded-full blur-3xl opacity-30 -ml-48 -mt-48"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Left side - Text content */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-12 h-0.5 bg-[#495464]"></span>
+                <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
+                  За нас
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
+                Галерия с история на две поколения и поглед към бъдещето
+              </h2>
+              <div className="space-y-6 mb-8">
+                <p className="text-lg text-[#495464]/80 leading-relaxed">
+                  nOva art space е съвременна галерия и премиум пространство за
+                  събития, което съчетава изкуство, архитектура и бизнес визия.
+                </p>
+                <p className="text-lg text-[#495464]/80 leading-relaxed">
+                  Нашият фокус е върху стойностни произведения — от големите
+                  български майстори до силни съвременни автори — представени в
+                  среда, създадена за фокус, усещане и престиж.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center gap-2 text-[#495464]/70">
+                  <IconBuilding className="w-5 h-5 text-[#495464]" />
+                  <span className="text-sm">Пет пространства</span>
+                </div>
+                <div className="flex items-center gap-2 text-[#495464]/70">
+                  <IconUsers className="w-5 h-5 text-[#495464]" />
+                  <span className="text-sm">Две поколения</span>
+                </div>
+                <div className="flex items-center gap-2 text-[#495464]/70">
+                  <IconPalette className="w-5 h-5 text-[#495464]" />
+                  <span className="text-sm">Една мисия</span>
+                </div>
+              </div>
+              <Link
+                href="/za-nas"
+                className="inline-flex items-center gap-2 bg-[#495464] text-white px-8 py-3 rounded-md font-medium hover:bg-[#495464]/90 transition-all duration-300 hover:shadow-lg hover:scale-105 group"
+              >
+                Научи повече
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Right side - Image */}
+            <div className="rounded-lg overflow-hidden">
+              <Image
+                src="/vhod.webp"
+                alt="nOva art space вход"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Настояща изложба */}
       {currentExhibition && (
-        <section className="py-20 bg-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#E8E8E8] rounded-full blur-3xl opacity-30 -mr-48 -mt-48"></div>
+        <section className="py-20 bg-gradient-to-br from-[#E8E8E8] to-[#F5F5F5] relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-20 -ml-48 -mb-48"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
@@ -117,8 +193,8 @@ export default async function Home() {
       )}
 
       {/* Организирай събитие */}
-      <section className="py-20 bg-gradient-to-br from-[#E8E8E8] to-[#F5F5F5] relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-20 -ml-48 -mb-48"></div>
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#E8E8E8] rounded-full blur-3xl opacity-30 -mr-48 -mt-48"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-4">
@@ -162,82 +238,6 @@ export default async function Home() {
                 />
               </svg>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* За nOva art space */}
-      <section className="py-20 bg-white relative">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#E8E8E8] rounded-full blur-3xl opacity-30 -ml-48 -mt-48"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left side - Text content */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-12 h-0.5 bg-[#495464]"></span>
-                <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
-                  За нас
-                </span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
-                Галерия с история на две поколения и поглед към бъдещето
-              </h2>
-              <div className="space-y-6 mb-8">
-                <p className="text-lg text-[#495464]/80 leading-relaxed">
-                  nOva art space е съвременна галерия и премиум пространство за
-                  събития, което съчетава изкуство, архитектура и бизнес визия.
-                </p>
-                <p className="text-lg text-[#495464]/80 leading-relaxed">
-                  Нашият фокус е върху стойностни произведения — от големите
-                  български майстори до силни съвременни автори — представени в
-                  среда, създадена за фокус, усещане и престиж.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="flex items-center gap-2 text-[#495464]/70">
-                  <IconBuilding className="w-5 h-5 text-[#495464]" />
-                  <span className="text-sm">Пет пространства</span>
-                </div>
-                <div className="flex items-center gap-2 text-[#495464]/70">
-                  <IconUsers className="w-5 h-5 text-[#495464]" />
-                  <span className="text-sm">Две поколения</span>
-                </div>
-                <div className="flex items-center gap-2 text-[#495464]/70">
-                  <IconPalette className="w-5 h-5 text-[#495464]" />
-                  <span className="text-sm">Една мисия</span>
-                </div>
-              </div>
-              <Link
-                href="/za-nas"
-                className="inline-flex items-center gap-2 bg-[#495464] text-white px-8 py-3 rounded-md font-medium hover:bg-[#495464]/90 transition-all duration-300 hover:shadow-lg hover:scale-105 group"
-              >
-                Научи повече
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-            </div>
-
-            {/* Right side - Image */}
-            <div className="rounded-lg overflow-hidden">
-              <Image
-                src="/vhod.webp"
-                alt="nOva art space вход"
-                width={800}
-                height={600}
-                className="w-full h-auto object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>
