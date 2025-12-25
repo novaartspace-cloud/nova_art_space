@@ -4,16 +4,6 @@ import Navigation from "../components/Navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ImageCarousel from "../components/ImageCarousel";
-import {
-  IconPalette,
-  IconEye,
-  IconBriefcase,
-  IconImage,
-  IconBook,
-  IconParty,
-  IconUsers,
-  IconRefresh,
-} from "../components/Icons";
 
 export default function ZaNas() {
   // Images for each gallery location
@@ -200,157 +190,218 @@ export default function ZaNas() {
         </div>
 
         {/* Нашата мисия */}
-        <div className="mb-20">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-12 h-0.5 bg-[#495464]"></span>
-            <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
-              Мисия
-            </span>
+        <div className="mb-20 relative overflow-hidden">
+          {/* Decorative background elements */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#495464] rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#495464] rounded-full blur-3xl"></div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
-            Нашата мисия
-          </h2>
-          <div className="bg-[#E8E8E8]/30 rounded-lg p-6 mb-6 border-l-4 border-[#495464]">
-            <p className="text-2xl text-[#495464] font-semibold">
-              Да поддържаме жив диалога между традиция и съвременност.
+          
+          <div className="relative bg-gradient-to-br from-[#F8F9FA] via-white to-[#E8E8E8]/40 rounded-2xl p-8 md:p-12 border border-[#E8E8E8] shadow-lg">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-12 h-0.5 bg-[#495464]"></span>
+              <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
+                Мисия
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
+              Нашата мисия
+            </h2>
+            <div className="bg-gradient-to-r from-[#9CA3AF] to-[#B0B8C4] rounded-xl p-6 md:p-8 mb-8 shadow-md">
+              <p className="text-2xl md:text-3xl text-white font-normal leading-relaxed italic" style={{ fontFamily: 'var(--font-dancing-script), cursive', fontStyle: 'italic' }}>
+                Да поддържаме жив диалога между традиция и съвременност.
+              </p>
+            </div>
+            <p className="text-lg text-[#495464]/80 leading-relaxed mb-8">
+              Мисията на nOva art space е да създава среда, в която изкуството има
+              силата да обединява хора, идеи и поколения. Стремим се да бъдем
+              пространство, в което:
             </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#495464]/5 rounded-full -mr-16 -mt-16 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-lg text-[#495464]/80 leading-relaxed group-hover:text-[#495464] transition-colors font-medium">
+                    утвърдени творци съжителстват с млади таланти;
+                  </p>
+                </div>
+              </div>
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#495464]/5 rounded-full -mr-16 -mt-16 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-lg text-[#495464]/80 leading-relaxed group-hover:text-[#495464] transition-colors font-medium">
+                    класическото наследство намира своята естествена връзка със
+                    съвременните форми;
+                  </p>
+                </div>
+              </div>
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#495464]/5 rounded-full -mr-16 -mt-16 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-lg text-[#495464]/80 leading-relaxed group-hover:text-[#495464] transition-colors font-medium">
+                    публиката не просто гледа, а преживява изкуството;
+                  </p>
+                </div>
+              </div>
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#495464]/5 rounded-full -mr-16 -mt-16 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-lg text-[#495464]/80 leading-relaxed group-hover:text-[#495464] transition-colors font-medium">
+                    културата и бизнесът се срещат и създават стойност един за друг.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border-l-4 border-[#495464] shadow-md">
+              <p className="text-lg text-[#495464]/80 leading-relaxed">
+                В основата на нашата философия стои приемствеността – мостът между
+                традиция и новаторство. Затова галерията активно подкрепя нови
+                автори, организира професионални формати и предоставя сцена за
+                реализация, развитие и диалог.
+              </p>
+            </div>
           </div>
-          <p className="text-lg text-[#495464]/80 leading-relaxed mb-6">
-            Мисията на nOva art space е да създава среда, в която изкуството има
-            силата да обединява хора, идеи и поколения. Стремим се да бъдем
-            пространство, в което:
-          </p>
-          <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="flex items-start gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconPalette className="w-5 h-5 mt-1 text-[#495464]" />
-              <p className="text-lg text-[#495464]/80 leading-relaxed">
-                утвърдени творци съжителстват с млади таланти;
-              </p>
-            </div>
-            <div className="flex items-start gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconRefresh className="w-5 h-5 mt-1 text-[#495464]" />
-              <p className="text-lg text-[#495464]/80 leading-relaxed">
-                класическото наследство намира своята естествена връзка със
-                съвременните форми;
-              </p>
-            </div>
-            <div className="flex items-start gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconEye className="w-5 h-5 mt-1 text-[#495464]" />
-              <p className="text-lg text-[#495464]/80 leading-relaxed">
-                публиката не просто гледа, а преживява изкуството;
-              </p>
-            </div>
-            <div className="flex items-start gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconBriefcase className="w-5 h-5 mt-1 text-[#495464]" />
-              <p className="text-lg text-[#495464]/80 leading-relaxed">
-                културата и бизнесът се срещат и създават стойност един за друг.
-              </p>
-            </div>
-          </div>
-          <p className="text-lg text-[#495464]/80 leading-relaxed">
-            В основата на нашата философия стои приемствеността – мостът между
-            традиция и новаторство. Затова галерията активно подкрепя нови
-            автори, организира професионални формати и предоставя сцена за
-            реализация, развитие и диалог.
-          </p>
         </div>
 
         {/* Какво представлява nOva art space днес */}
-        <div className="mb-20">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-12 h-0.5 bg-[#495464]"></span>
-            <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
-              Днес
-            </span>
+        <div className="mb-20 relative overflow-hidden">
+          {/* Decorative background elements */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-[#495464] rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#495464] rounded-full blur-3xl"></div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
-            Какво представлява nOva art space днес
-          </h2>
-          <div className="bg-[#E8E8E8]/30 rounded-lg p-6 mb-6 border-l-4 border-[#495464]">
-            <p className="text-2xl text-[#495464] font-semibold">
-              Повече от галерия. Културно средище. Премиум пространство за
-              събития и изкуство.
+          
+          <div className="relative bg-gradient-to-br from-[#E8E8E8]/50 via-[#F5F5F5] to-white rounded-2xl p-8 md:p-12 border border-[#E8E8E8] shadow-lg">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-12 h-0.5 bg-[#495464]"></span>
+              <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
+                Днес
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
+              Какво представлява nOva art space днес
+            </h2>
+            <div className="bg-gradient-to-r from-[#9CA3AF] to-[#B0B8C4] rounded-xl p-6 md:p-8 mb-8 shadow-md">
+              <p className="text-2xl md:text-3xl text-white font-normal leading-relaxed italic" style={{ fontFamily: 'var(--font-dancing-script), cursive', fontStyle: 'italic' }}>
+                Повече от галерия. Културно средище. Премиум пространство за
+                събития и изкуство.
+              </p>
+            </div>
+            <p className="text-lg text-[#495464]/80 leading-relaxed mb-8">
+              Днес nOva art space е динамична и гъвкава сцена, в която се
+              провеждат:
             </p>
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute top-0 left-0 w-28 h-28 bg-[#495464]/5 rounded-full -ml-14 -mt-14 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-[#495464]/80 group-hover:text-[#495464] transition-colors leading-relaxed font-medium">
+                    изложби на български класици и съвременни автори;
+                  </p>
+                </div>
+              </div>
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute top-0 left-0 w-28 h-28 bg-[#495464]/5 rounded-full -ml-14 -mt-14 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-[#495464]/80 group-hover:text-[#495464] transition-colors leading-relaxed font-medium">
+                    литературни събития, камерни постановки и концерти;
+                  </p>
+                </div>
+              </div>
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute top-0 left-0 w-28 h-28 bg-[#495464]/5 rounded-full -ml-14 -mt-14 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-[#495464]/80 group-hover:text-[#495464] transition-colors leading-relaxed font-medium">
+                    корпоративни, модни, светски и частни събития, които използват
+                    силата на изкуството като премиум контекст.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border-l-4 border-[#495464] shadow-md">
+              <p className="text-lg text-[#495464]/80 leading-relaxed">
+                Пространството предлага условия за различни типове инсталации,
+                презентации и културни формати – подкрепено от професионално
+                оборудване и архитектурни решения, които позволяват максимална
+                свобода и креативност.
+              </p>
+            </div>
           </div>
-          <p className="text-lg text-[#495464]/80 leading-relaxed mb-6">
-            Днес nOva art space е динамична и гъвкава сцена, в която се
-            провеждат:
-          </p>
-          <div className="grid md:grid-cols-3 gap-4 mb-6">
-            <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconImage className="w-8 h-8 mb-2 text-[#495464]" />
-              <p className="text-[#495464]/80">
-                изложби на български класици и съвременни автори;
-              </p>
-            </div>
-            <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconBook className="w-8 h-8 mb-2 text-[#495464]" />
-              <p className="text-[#495464]/80">
-                литературни събития, камерни постановки и концерти;
-              </p>
-            </div>
-            <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconParty className="w-8 h-8 mb-2 text-[#495464]" />
-              <p className="text-[#495464]/80">
-                корпоративни, модни, светски и частни събития, които използват
-                силата на изкуството като премиум контекст.
-              </p>
-            </div>
-          </div>
-          <p className="text-lg text-[#495464]/80 leading-relaxed">
-            Пространството предлага условия за различни типове инсталации,
-            презентации и културни формати – подкрепено от професионално
-            оборудване и архитектурни решения, които позволяват максимална
-            свобода и креативност.
-          </p>
         </div>
 
         {/* Нашата аудитория */}
-        <div className="bg-gradient-to-br from-[#E8E8E8] to-[#F5F5F5] p-8 md:p-12 rounded-lg border border-[#E8E8E8] shadow-sm">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-12 h-0.5 bg-[#495464]"></span>
-            <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
-              Аудитория
-            </span>
+        <div className="relative overflow-hidden">
+          {/* Decorative background elements */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#495464] rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#495464] rounded-full blur-3xl"></div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
-            Нашата аудитория
-          </h2>
-          <div className="bg-white/60 backdrop-blur-sm rounded-lg p-6 mb-6 border-l-4 border-[#495464]">
-            <p className="text-2xl text-[#495464] font-semibold">
-              Творци. Колекционери. Публика. Бизнес.
+          
+          <div className="relative bg-gradient-to-br from-white via-[#F8F9FA] to-[#E8E8E8]/40 rounded-2xl p-8 md:p-12 border border-[#E8E8E8] shadow-lg">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-12 h-0.5 bg-[#495464]"></span>
+              <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
+                Аудитория
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
+              Нашата аудитория
+            </h2>
+            <div className="bg-gradient-to-r from-[#9CA3AF] to-[#B0B8C4] rounded-xl p-6 md:p-8 mb-8 shadow-md">
+              <p className="text-2xl md:text-3xl text-white font-normal leading-relaxed italic" style={{ fontFamily: 'var(--font-dancing-script), cursive', fontStyle: 'italic' }}>
+                Творци. Колекционери. Публика. Бизнес.
+              </p>
+            </div>
+            <p className="text-lg text-[#495464]/80 leading-relaxed mb-8">
+              Галерията е създадена за всички, които вярват в силата на
+              изкуството:
             </p>
-          </div>
-          <p className="text-lg text-[#495464]/80 leading-relaxed mb-6">
-            Галерията е създадена за всички, които вярват в силата на
-            изкуството:
-          </p>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="flex items-start gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconPalette className="w-5 h-5 mt-1 text-[#495464]" />
-              <p className="text-lg text-[#495464]/80 leading-relaxed">
-                автори, търсещи професионална платформа за своите идеи;
-              </p>
-            </div>
-            <div className="flex items-start gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconImage className="w-5 h-5 mt-1 text-[#495464]" />
-              <p className="text-lg text-[#495464]/80 leading-relaxed">
-                колекционери, които разчитат на професионална експертиза и
-                селекция;
-              </p>
-            </div>
-            <div className="flex items-start gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconUsers className="w-5 h-5 mt-1 text-[#495464]" />
-              <p className="text-lg text-[#495464]/80 leading-relaxed">
-                публика, която търси вдъхновение, диалог и нови открития;
-              </p>
-            </div>
-            <div className="flex items-start gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#E8E8E8]">
-              <IconBriefcase className="w-5 h-5 mt-1 text-[#495464]" />
-              <p className="text-lg text-[#495464]/80 leading-relaxed">
-                бизнес клиенти, за които културната среда е знак за престиж и
-                идентичност.
-              </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#495464]/5 rounded-full -mr-16 -mb-16 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-lg text-[#495464]/80 leading-relaxed group-hover:text-[#495464] transition-colors font-medium">
+                    автори, търсещи професионална платформа за своите идеи;
+                  </p>
+                </div>
+              </div>
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#495464]/5 rounded-full -mr-16 -mb-16 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-lg text-[#495464]/80 leading-relaxed group-hover:text-[#495464] transition-colors font-medium">
+                    колекционери, които разчитат на професионална експертиза и
+                    селекция;
+                  </p>
+                </div>
+              </div>
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#495464]/5 rounded-full -mr-16 -mb-16 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-lg text-[#495464]/80 leading-relaxed group-hover:text-[#495464] transition-colors font-medium">
+                    публика, която търси вдъхновение, диалог и нови открития;
+                  </p>
+                </div>
+              </div>
+              <div className="group relative bg-white rounded-xl p-6 border-2 border-[#E8E8E8] hover:border-[#495464] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#495464]/5 rounded-full -mr-16 -mb-16 group-hover:bg-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-[#495464] to-[#495464]/60 mb-5 group-hover:w-24 transition-all duration-300 rounded-full"></div>
+                  <p className="text-lg text-[#495464]/80 leading-relaxed group-hover:text-[#495464] transition-colors font-medium">
+                    бизнес клиенти, за които културната среда е знак за престиж и
+                    идентичност.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
