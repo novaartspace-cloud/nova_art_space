@@ -146,7 +146,7 @@ export default function MainSlider({ slides }: MainSliderProps) {
 
   return (
     <div
-      className="relative w-full min-h-[500px] md:h-[750px] bg-gradient-to-br from-[#E8E8E8] via-[#F5F5F5] to-[#E8E8E8] pt-24 md:pt-0 overflow-hidden select-none"
+      className="relative w-full h-[500px] md:h-[750px] bg-gradient-to-br from-[#E8E8E8] via-[#F5F5F5] to-[#E8E8E8] pt-0 overflow-hidden select-none"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -190,6 +190,7 @@ export default function MainSlider({ slides }: MainSliderProps) {
                   : "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                 opacity: Math.abs(slideOffset) <= 1 ? 1 : 0,
                 zIndex: isActive ? 10 : Math.abs(slideOffset),
+                visibility: Math.abs(slideOffset) <= 1 ? "visible" : "hidden",
               }}
             >
               <Link
@@ -201,7 +202,7 @@ export default function MainSlider({ slides }: MainSliderProps) {
                   }
                 }}
               >
-                <div className="relative w-full h-full">
+                <div className="relative w-full h-full min-h-[500px] md:min-h-0">
                   <Image
                     src={slide.image_url}
                     alt={`Carousel slide ${index + 1}`}
@@ -209,6 +210,7 @@ export default function MainSlider({ slides }: MainSliderProps) {
                     className="object-cover"
                     priority={index === 0}
                     draggable={false}
+                    sizes="100vw"
                   />
                 </div>
               </Link>
