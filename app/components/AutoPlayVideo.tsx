@@ -105,7 +105,6 @@ export default function AutoPlayVideo({ src, className }: AutoPlayVideoProps) {
       src={src}
       loop
       playsInline
-      controls
       muted={!hasUserInteracted}
       preload="auto"
       className={className}
