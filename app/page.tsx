@@ -1,5 +1,6 @@
 import Navigation from "./components/Navigation";
 import MainSlider from "./components/MainSlider";
+import AutoPlayVideo from "./components/AutoPlayVideo";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -101,13 +102,10 @@ export default async function Home() {
               </Link>
             </div>
 
-            {/* Right side - Image */}
+            {/* Right side - Video */}
             <div className="rounded-lg overflow-hidden">
-              <Image
-                src="/vhod.webp"
-                alt="nOva art space вход"
-                width={800}
-                height={600}
+              <AutoPlayVideo
+                src="/video.mp4"
                 className="w-full h-auto object-cover"
               />
             </div>
