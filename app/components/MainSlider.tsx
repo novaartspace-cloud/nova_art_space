@@ -4,23 +4,45 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CarouselSlide } from "../lib/carousel";
+import { CarouselMobileSlide } from "../lib/carousel_mobile";
 
 interface MainSliderProps {
   slides: CarouselSlide[];
+  mobileSlides?: CarouselMobileSlide[];
 }
 
-export default function MainSlider({ slides }: MainSliderProps) {
+export default function MainSlider({
+  slides,
+  mobileSlides = [],
+}: MainSliderProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const slideDirectionRef = useRef<"next" | "prev">("next");
 
+  // Detect if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Determine which slides to use
+  const activeSlides =
+    isMobile && mobileSlides && mobileSlides.length > 0 ? mobileSlides : slides;
+
   // If no slides from database, don't render
-  if (!slides || slides.length === 0) {
+  if (!activeSlides || activeSlides.length === 0) {
     return null;
   }
 
@@ -34,15 +56,20 @@ export default function MainSlider({ slides }: MainSliderProps) {
     // Start new timer
     timerRef.current = setInterval(() => {
       if (slideDirectionRef.current === "next") {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setCurrentSlide((prev) => (prev + 1) % activeSlides.length);
       } else {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+        setCurrentSlide(
+          (prev) => (prev - 1 + activeSlides.length) % activeSlides.length
+        );
       }
     }, 3000);
-  }, [slides.length]);
+  }, [activeSlides.length]);
 
   useEffect(() => {
-    if (slides.length === 0) return;
+    if (activeSlides.length === 0) return;
+
+    // Reset to first slide when switching between mobile/desktop
+    setCurrentSlide(0);
 
     // Start initial timer
     startTimer();
@@ -53,7 +80,7 @@ export default function MainSlider({ slides }: MainSliderProps) {
         clearInterval(timerRef.current);
       }
     };
-  }, [slides.length, startTimer]);
+  }, [activeSlides.length, startTimer, isMobile]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -89,11 +116,13 @@ export default function MainSlider({ slides }: MainSliderProps) {
 
     if (isLeftSwipe) {
       slideDirectionRef.current = "next";
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % activeSlides.length);
       startTimer();
     } else if (isRightSwipe) {
       slideDirectionRef.current = "prev";
-      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+      setCurrentSlide(
+        (prev) => (prev - 1 + activeSlides.length) % activeSlides.length
+      );
       startTimer();
     }
 
@@ -130,11 +159,13 @@ export default function MainSlider({ slides }: MainSliderProps) {
 
     if (isLeftSwipe) {
       slideDirectionRef.current = "next";
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % activeSlides.length);
       startTimer();
     } else if (isRightSwipe) {
       slideDirectionRef.current = "prev";
-      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+      setCurrentSlide(
+        (prev) => (prev - 1 + activeSlides.length) % activeSlides.length
+      );
       startTimer();
     }
 
@@ -146,7 +177,7 @@ export default function MainSlider({ slides }: MainSliderProps) {
 
   return (
     <div
-      className="relative w-full h-[500px] md:h-[750px] bg-gradient-to-br from-[#E8E8E8] via-[#F5F5F5] to-[#E8E8E8] pt-0 overflow-hidden select-none"
+      className="relative w-full h-[500px] md:h-[85vh] bg-white pt-0 overflow-hidden select-none"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -160,14 +191,8 @@ export default function MainSlider({ slides }: MainSliderProps) {
         setTouchEnd(null);
       }}
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-[#495464] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#495464] rounded-full blur-3xl"></div>
-      </div>
-
       <div ref={containerRef} className="relative w-full h-full">
-        {slides.map((slide, index) => {
+        {activeSlides.map((slide, index) => {
           const slideOffset = index - currentSlide;
           const isActive = index === currentSlide;
 
@@ -202,12 +227,12 @@ export default function MainSlider({ slides }: MainSliderProps) {
                   }
                 }}
               >
-                <div className="relative w-full h-full min-h-[500px] md:min-h-0">
+                <div className="relative w-full h-full min-h-[500px] md:min-h-0 flex items-center justify-center">
                   <Image
                     src={slide.image_url}
                     alt={`Carousel slide ${index + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-cover md:object-contain"
                     priority={index === 0}
                     draggable={false}
                     sizes="100vw"
@@ -221,7 +246,7 @@ export default function MainSlider({ slides }: MainSliderProps) {
 
       {/* Slide Indicators */}
       <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
-        {slides.map((_, index) => (
+        {activeSlides.map((_, index) => (
           <button
             key={index}
             onClick={(e) => {
@@ -256,13 +281,13 @@ export default function MainSlider({ slides }: MainSliderProps) {
             slideDirectionRef.current = "prev";
             // Change slide immediately
             setCurrentSlide(
-              (prev) => (prev - 1 + slides.length) % slides.length
+              (prev) => (prev - 1 + activeSlides.length) % activeSlides.length
             );
             // Restart timer
             startTimer();
           }
         }}
-        className="flex absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#495464] p-2 md:p-3 rounded-full transition-all duration-300 z-20 shadow-lg hover:shadow-xl hover:scale-110 group"
+        className="flex absolute left-2 md:left-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#495464] p-2 md:p-3 rounded-full transition-all duration-300 z-20 shadow-lg hover:shadow-xl hover:scale-110 group"
         aria-label="Previous slide"
       >
         <svg
@@ -287,12 +312,12 @@ export default function MainSlider({ slides }: MainSliderProps) {
             // Set direction to next
             slideDirectionRef.current = "next";
             // Change slide immediately
-            setCurrentSlide((prev) => (prev + 1) % slides.length);
+            setCurrentSlide((prev) => (prev + 1) % activeSlides.length);
             // Restart timer
             startTimer();
           }
         }}
-        className="flex absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#495464] p-2 md:p-3 rounded-full transition-all duration-300 z-20 shadow-lg hover:shadow-xl hover:scale-110 group"
+        className="flex absolute right-2 md:right-8 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#495464] p-2 md:p-3 rounded-full transition-all duration-300 z-20 shadow-lg hover:shadow-xl hover:scale-110 group"
         aria-label="Next slide"
       >
         <svg

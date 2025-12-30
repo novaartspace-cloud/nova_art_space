@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import NewsAdminPanel from "./NewsAdminPanel";
 import CarouselAdminPanel from "./CarouselAdminPanel";
+import CarouselMobileAdminPanel from "./CarouselMobileAdminPanel";
 import EventImagesAdminPanel from "./EventImagesAdminPanel";
 
 interface Exhibition {
@@ -23,11 +24,12 @@ interface ExhibitionWithImages extends Exhibition {
   images: string[];
 }
 
-type TabType = "exhibitions" | "news" | "carousel" | "events";
+type TabType = "exhibitions" | "news" | "carousel" | "carousel-mobile" | "events";
 
 export default function AdminPanel() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<TabType>("exhibitions");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [exhibitions, setExhibitions] = useState<ExhibitionWithImages[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -373,7 +375,110 @@ export default function AdminPanel() {
       {/* Tabs */}
       <div className="bg-[#E8E8E8] border-b border-[#495464]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-4">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="w-full flex items-center justify-between px-4 py-3 font-medium text-[#495464] bg-white rounded-t-lg"
+            >
+              <span>
+                {activeTab === "exhibitions" && "Изложби"}
+                {activeTab === "news" && "Новини"}
+                {activeTab === "carousel" && "Карусела (Компютър)"}
+                {activeTab === "carousel-mobile" && "Карусела (Телефон)"}
+                {activeTab === "events" && "Събития"}
+              </span>
+              <svg
+                className={`w-5 h-5 transition-transform ${
+                  mobileMenuOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            
+            {/* Mobile Dropdown Menu */}
+            {mobileMenuOpen && (
+              <div className="bg-white border-t border-[#E8E8E8] rounded-b-lg shadow-lg">
+                <button
+                  onClick={() => {
+                    setActiveTab("exhibitions");
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 font-medium transition-colors ${
+                    activeTab === "exhibitions"
+                      ? "bg-[#495464] text-white"
+                      : "text-[#495464] hover:bg-[#E8E8E8]"
+                  }`}
+                >
+                  Изложби
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab("news");
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 font-medium transition-colors ${
+                    activeTab === "news"
+                      ? "bg-[#495464] text-white"
+                      : "text-[#495464] hover:bg-[#E8E8E8]"
+                  }`}
+                >
+                  Новини
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab("carousel");
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 font-medium transition-colors ${
+                    activeTab === "carousel"
+                      ? "bg-[#495464] text-white"
+                      : "text-[#495464] hover:bg-[#E8E8E8]"
+                  }`}
+                >
+                  Карусела (Компютър)
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab("carousel-mobile");
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 font-medium transition-colors ${
+                    activeTab === "carousel-mobile"
+                      ? "bg-[#495464] text-white"
+                      : "text-[#495464] hover:bg-[#E8E8E8]"
+                  }`}
+                >
+                  Карусела (Телефон)
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab("events");
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 font-medium transition-colors rounded-b-lg ${
+                    activeTab === "events"
+                      ? "bg-[#495464] text-white"
+                      : "text-[#495464] hover:bg-[#E8E8E8]"
+                  }`}
+                >
+                  Събития
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Desktop Tabs */}
+          <div className="hidden md:flex gap-4">
             <button
               onClick={() => setActiveTab("exhibitions")}
               className={`px-6 py-3 font-medium transition-colors ${
@@ -402,7 +507,17 @@ export default function AdminPanel() {
                   : "text-[#495464]/70 hover:text-[#495464]"
               }`}
             >
-              Карусела
+              Карусела (Компютър)
+            </button>
+            <button
+              onClick={() => setActiveTab("carousel-mobile")}
+              className={`px-6 py-3 font-medium transition-colors ${
+                activeTab === "carousel-mobile"
+                  ? "bg-white text-[#495464] border-b-2 border-[#495464]"
+                  : "text-[#495464]/70 hover:text-[#495464]"
+              }`}
+            >
+              Карусела (Телефон)
             </button>
             <button
               onClick={() => setActiveTab("events")}
@@ -422,6 +537,8 @@ export default function AdminPanel() {
         <NewsAdminPanel />
       ) : activeTab === "carousel" ? (
         <CarouselAdminPanel />
+      ) : activeTab === "carousel-mobile" ? (
+        <CarouselMobileAdminPanel />
       ) : activeTab === "events" ? (
         <EventImagesAdminPanel />
       ) : (

@@ -23,6 +23,7 @@ import {
 import { getExhibitions } from "./lib/exhibitions";
 import { getNews } from "./lib/news";
 import { getCarouselSlides } from "./lib/carousel";
+import { getCarouselMobileSlides } from "./lib/carousel_mobile";
 
 export default async function Home() {
   // Fetch current exhibition (position 0)
@@ -35,11 +36,12 @@ export default async function Home() {
 
   // Fetch carousel slides
   const carouselSlides = await getCarouselSlides();
+  const carouselMobileSlides = await getCarouselMobileSlides();
 
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <MainSlider slides={carouselSlides} />
+      <MainSlider slides={carouselSlides} mobileSlides={carouselMobileSlides} />
 
       {/* За нас */}
       <section className="py-20 bg-white relative">
