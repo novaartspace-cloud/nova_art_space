@@ -232,7 +232,7 @@ export default function MainSlider({
                     src={slide.image_url}
                     alt={`Carousel slide ${index + 1}`}
                     fill
-                    className="object-cover md:object-contain"
+                    className="object-contain"
                     priority={index === 0}
                     draggable={false}
                     sizes="100vw"
