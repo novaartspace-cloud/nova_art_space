@@ -1,0 +1,47 @@
+═══════════════════════════════════════════════════════════════════════════════
+  ENVIRONMENT VARIABLES - .env.local
+═══════════════════════════════════════════════════════════════════════════════
+
+Създайте файл .env.local в root директорията на проекта и добавете следните променливи:
+
+───────────────────────────────────────────────────────────────────────────────
+# Supabase Configuration (Required)
+# Получете тези ключове от разработчика
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+
+# Опционално - ако използвате друг ключ:
+# NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=your-publishable-key-here
+
+───────────────────────────────────────────────────────────────────────────────
+# Google Analytics 4 (Optional)
+# Получете от Google Analytics → Admin → Data Streams → Measurement ID
+# Формат: G-XXXXXXXXXX
+# Ако не добавите този ключ, Google Analytics няма да работи
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
+
+───────────────────────────────────────────────────────────────────────────────
+# CookieYes (Optional)
+# Получете от https://www.cookieyes.com след регистрация
+# 1. Регистрирайте се на cookieyes.com
+# 2. Създайте нов сайт
+# 3. Въведете вашия домейн
+# 4. Копирайте скрипт URL: https://cdn-cookieyes.com/client_data/XXXXXXXX/script.js
+# 5. Вземете само частта XXXXXXXXX и я поставете тук
+# Ако не добавите този ключ, CookieYes няма да работи
+NEXT_PUBLIC_COOKIEYES_ID=
+
+───────────────────────────────────────────────────────────────────────────────
+# Google Search Console Verification (Optional)
+# Получете от Google Search Console → Settings → Ownership verification
+# Ако не добавите този ключ, verification няма да работи
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
+
+───────────────────────────────────────────────────────────────────────────────
+
+ВАЖНО:
+- Всички променливи започват с NEXT_PUBLIC_ за да работят в браузъра
+- Ако не добавите опционалните ключове, съответните функционалности няма да работят
+- НЕ качвайте .env.local файла в GitHub! Той е в .gitignore
+- За Vercel, добавете тези променливи в Environment Variables секцията
+

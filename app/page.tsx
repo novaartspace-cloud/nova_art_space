@@ -24,10 +24,35 @@ import { getExhibitions } from "./lib/exhibitions";
 import { getNews } from "./lib/news";
 import { getCarouselSlides } from "./lib/carousel";
 import { getCarouselMobileSlides } from "./lib/carousel_mobile";
+import { siteConfig } from "./lib/site-config";
+import type { Metadata } from "next";
 
 // Force dynamic rendering to always fetch fresh data (no caching)
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
+
+export const metadata: Metadata = {
+  title: "Начало - nOva art space | Съвременна арт галерия София",
+  description: "nOva art space - съвременна арт галерия в София. Предлагаме картини, изкуство, изложби и премиум пространство за събития. Посетете най-добрата арт галерия в България.",
+  keywords: [
+    "nova art gallery",
+    "нова арт галерия софия",
+    "арт галерия",
+    "галерия софия",
+    "изкуство софия",
+    "картини софия",
+    "галерия българия",
+    "изложби софия",
+    "съвременно изкуство",
+    "art gallery sofia"
+  ],
+  openGraph: {
+    title: "nOva art space - Съвременна арт галерия в София",
+    description: "Съвременна арт галерия и премиум пространство за събития в София. Картини, изкуство и галерия в България.",
+    url: siteConfig.url,
+    type: "website",
+  },
+};
 
 export default async function Home() {
   // Fetch current exhibition (position 0)
@@ -48,7 +73,7 @@ export default async function Home() {
       <MainSlider slides={carouselSlides} mobileSlides={carouselMobileSlides} />
 
       {/* За нас */}
-      <section className="py-20 bg-white relative">
+      <section className="py-20 bg-white relative" itemScope itemType="https://schema.org/AboutPage">
         <div className="absolute top-0 left-0 w-96 h-96 bg-[#E8E8E8] rounded-full blur-3xl opacity-30 -ml-48 -mt-48"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -61,9 +86,9 @@ export default async function Home() {
                 </span>
               </div>
               <ScrollAnimation>
-                <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6">
+                <h1 className="text-3xl md:text-4xl font-bold text-[#495464] mb-6" itemProp="headline">
                   Галерия с история на две поколения и поглед към бъдещето
-                </h2>
+                </h1>
               </ScrollAnimation>
               <div className="space-y-6 mb-8">
                 <ScrollAnimation delay={100}>
@@ -145,7 +170,7 @@ export default async function Home() {
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-2">
-                „{currentExhibition.title}"
+                {currentExhibition.title}
               </h2>
               {currentExhibition.subtitle && (
                 <ScrollAnimation>
@@ -160,10 +185,11 @@ export default async function Home() {
                 <div className="mb-8 rounded-lg overflow-hidden">
                   <Image
                     src={currentExhibition.mainImage}
-                    alt={currentExhibition.title}
+                    alt={`${currentExhibition.title} - Изложба в nOva art space, арт галерия София`}
                     width={800}
                     height={500}
                     className="w-full h-auto object-cover"
+                    title={`${currentExhibition.title} - Арт галерия София`}
                   />
                 </div>
               )}
@@ -238,10 +264,11 @@ export default async function Home() {
             <div className="mb-8 rounded-lg overflow-hidden">
               <Image
                 src="/zala1.jpg"
-                alt="nOva art space зала"
+                alt="nOva art space зала за събития - Премиум пространство за събития в арт галерия София"
                 width={1200}
                 height={675}
                 className="w-full h-auto object-cover"
+                title="nOva art space - Премиум пространство за събития, София"
               />
             </div>
             <Link
@@ -302,10 +329,11 @@ export default async function Home() {
                   <div className="mb-6 rounded-lg overflow-hidden">
                     <Image
                       src={mainNews.mainImage}
-                      alt={mainNews.title}
+                      alt={`${mainNews.title} - Новини от nOva art space, арт галерия София`}
                       width={800}
                       height={500}
                       className="w-full h-auto object-cover"
+                      title={`${mainNews.title} - Арт галерия София`}
                     />
                   </div>
                 )}

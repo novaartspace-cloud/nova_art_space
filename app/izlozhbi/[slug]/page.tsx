@@ -68,7 +68,7 @@ export default async function ExhibitionDetail({ params }: PageProps) {
 
         <div className="mb-6">
           <h1 className="text-4xl md:text-5xl font-bold text-[#495464]">
-            „{exhibition.title}"
+            {exhibition.title}
           </h1>
           {exhibition.subtitle && (
             <ScrollAnimation>

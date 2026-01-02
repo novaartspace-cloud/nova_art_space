@@ -302,13 +302,14 @@ export default function MainSlider({
                 >
                   <Image
                     src={slide.image_url}
-                    alt={`Carousel slide ${index + 1}`}
+                    alt={`nOva art space - Арт галерия София, изкуство и картини ${index + 1}`}
                     width={1920}
                     height={1080}
                     className="w-full h-auto object-contain"
                     priority={index === 0}
                     draggable={false}
                     sizes="100vw"
+                    title="nOva art space - Съвременна арт галерия в София"
                   />
                 </div>
               </Link>
