@@ -2,19 +2,18 @@
 
 import Script from "next/script";
 import { GA_MEASUREMENT_ID } from "../lib/gtag";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { pageview } from "../lib/gtag";
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (pathname && GA_MEASUREMENT_ID) {
       pageview(pathname);
     }
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   // Don't render if GA_MEASUREMENT_ID is not set
   if (!GA_MEASUREMENT_ID) {
@@ -44,4 +43,3 @@ export default function GoogleAnalytics() {
     </>
   );
 }
-
