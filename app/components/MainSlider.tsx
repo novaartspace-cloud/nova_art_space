@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CarouselSlide } from "../lib/carousel";
@@ -21,7 +21,9 @@ export default function MainSlider({
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [containerHeight, setContainerHeight] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const imageRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const slideDirectionRef = useRef<"next" | "prev">("next");
 
@@ -38,8 +40,61 @@ export default function MainSlider({
   }, []);
 
   // Determine which slides to use
-  const activeSlides =
-    isMobile && mobileSlides && mobileSlides.length > 0 ? mobileSlides : slides;
+  const activeSlides = useMemo(() => {
+    return isMobile && mobileSlides && mobileSlides.length > 0 ? mobileSlides : slides;
+  }, [isMobile, mobileSlides, slides]);
+
+  // Get active slide ID for stable reference
+  const activeSlideId = activeSlides && activeSlides.length > 0 && currentSlide < activeSlides.length
+    ? activeSlides[currentSlide]?.id
+    : null;
+
+  // Update container height based on active slide image using ResizeObserver
+  useEffect(() => {
+    if (!activeSlideId) return;
+    
+    const activeImageContainer = imageRefs.current[activeSlideId];
+    if (!activeImageContainer) {
+      // Wait a bit for the image container to be rendered
+      const timeoutId = setTimeout(() => {
+        const container = imageRefs.current[activeSlideId];
+        if (container) {
+          // Set height exactly to image container height
+          setContainerHeight(container.offsetHeight);
+        }
+      }, 200);
+      return () => clearTimeout(timeoutId);
+    }
+
+    const updateHeight = () => {
+      if (activeImageContainer) {
+        // Set height exactly to image container height
+        setContainerHeight(activeImageContainer.offsetHeight);
+      }
+    };
+
+    // Use ResizeObserver to watch for size changes
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        // Set height exactly to image container height
+        setContainerHeight(entry.contentRect.height);
+      }
+    });
+
+    resizeObserver.observe(activeImageContainer);
+
+    // Also update on window resize
+    window.addEventListener("resize", updateHeight);
+    
+    // Initial update with small delay to ensure image is rendered
+    const timeoutId = setTimeout(updateHeight, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, [currentSlide, activeSlideId, isMobile]);
 
   // If no slides from database, don't render
   if (!activeSlides || activeSlides.length === 0) {
@@ -177,7 +232,7 @@ export default function MainSlider({
 
   return (
     <div
-      className="relative w-full h-[500px] md:h-[85vh] bg-white pt-0 overflow-hidden select-none"
+      className="relative w-full bg-white pt-0 overflow-hidden select-none"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -191,7 +246,14 @@ export default function MainSlider({
         setTouchEnd(null);
       }}
     >
-      <div ref={containerRef} className="relative w-full h-full">
+      <div 
+        ref={containerRef} 
+        className="relative w-full"
+        style={{ 
+          height: containerHeight ? `${containerHeight}px` : undefined,
+          transition: containerHeight ? 'height 0.3s ease-in-out' : 'none'
+        }}
+      >
         {activeSlides.map((slide, index) => {
           const slideOffset = index - currentSlide;
           const isActive = index === currentSlide;
@@ -204,10 +266,13 @@ export default function MainSlider({
             transformX += (dragOffset / containerWidth) * 100;
           }
 
+          // Create unique key that includes device type to prevent React key conflicts
+          const uniqueKey = `${isMobile ? 'mobile' : 'desktop'}-${slide.id}`;
+
           return (
             <div
-              key={slide.id}
-              className="absolute inset-0"
+              key={uniqueKey}
+              className="absolute inset-0 w-full"
               style={{
                 transform: `translateX(${transformX}%)`,
                 transition: isDragging
@@ -220,19 +285,27 @@ export default function MainSlider({
             >
               <Link
                 href={slide.link_url}
-                className="block w-full h-full cursor-pointer"
+                className="block w-full cursor-pointer"
                 onClick={(e) => {
                   if (isDragging) {
                     e.preventDefault();
                   }
                 }}
               >
-                <div className="relative w-full h-full min-h-[500px] md:min-h-0 flex items-center justify-center">
+                <div 
+                  ref={(el) => {
+                    if (el) {
+                      imageRefs.current[slide.id] = el;
+                    }
+                  }}
+                  className="relative w-full"
+                >
                   <Image
                     src={slide.image_url}
                     alt={`Carousel slide ${index + 1}`}
-                    fill
-                    className="object-contain"
+                    width={1920}
+                    height={1080}
+                    className="w-full h-auto object-contain"
                     priority={index === 0}
                     draggable={false}
                     sizes="100vw"
