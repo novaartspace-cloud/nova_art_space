@@ -2,19 +2,8 @@
 
 import Script from "next/script";
 import { GA_MEASUREMENT_ID } from "../lib/gtag";
-import { usePathname } from "next/navigation";
-import { useEffect } from "react";
-import { pageview } from "../lib/gtag";
 
 export default function GoogleAnalytics() {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    if (pathname && GA_MEASUREMENT_ID) {
-      pageview(pathname);
-    }
-  }, [pathname]);
-
   // Don't render if GA_MEASUREMENT_ID is not set
   if (!GA_MEASUREMENT_ID) {
     return null;
@@ -37,6 +26,38 @@ export default function GoogleAnalytics() {
             gtag('config', '${GA_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
             });
+            
+            // Track Next.js route changes
+            if (typeof window !== 'undefined') {
+              const originalPushState = history.pushState;
+              const originalReplaceState = history.replaceState;
+              
+              history.pushState = function() {
+                originalPushState.apply(history, arguments);
+                if (window.gtag) {
+                  window.gtag('config', '${GA_MEASUREMENT_ID}', {
+                    page_path: window.location.pathname,
+                  });
+                }
+              };
+              
+              history.replaceState = function() {
+                originalReplaceState.apply(history, arguments);
+                if (window.gtag) {
+                  window.gtag('config', '${GA_MEASUREMENT_ID}', {
+                    page_path: window.location.pathname,
+                  });
+                }
+              };
+              
+              window.addEventListener('popstate', function() {
+                if (window.gtag) {
+                  window.gtag('config', '${GA_MEASUREMENT_ID}', {
+                    page_path: window.location.pathname,
+                  });
+                }
+              });
+            }
           `,
         }}
       />
