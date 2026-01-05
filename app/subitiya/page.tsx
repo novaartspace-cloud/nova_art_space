@@ -5,14 +5,6 @@ import Navigation from "../components/Navigation";
 import ScrollAnimation from "../components/ScrollAnimation";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  IconPalette,
-  IconShirt,
-  IconNewspaper,
-  IconBriefcase,
-  IconChampagne,
-  IconHandshake,
-} from "../components/Icons";
 import { EventImage } from "../lib/eventImages";
 
 export default function Subitiya() {
@@ -145,8 +137,10 @@ export default function Subitiya() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxOpen, currentImages.length]);
 
-  const openEventImagesLightbox = (category: 'koncert' | 'kokteil' | 'seminar' | 'produkt') => {
-    const images = eventImages[category].map(img => img.image_url);
+  const openEventImagesLightbox = (
+    category: "koncert" | "kokteil" | "seminar" | "produkt"
+  ) => {
+    const images = eventImages[category].map((img) => img.image_url);
     if (images.length > 0) {
       setCurrentImages(images);
       setCurrentImageIndex(0);
@@ -211,9 +205,12 @@ export default function Subitiya() {
               href="#koncert"
               onClick={(e) => {
                 e.preventDefault();
-                const element = document.getElementById('koncert');
+                const element = document.getElementById("koncert");
                 if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
                 }
               }}
               className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
@@ -230,9 +227,12 @@ export default function Subitiya() {
               href="#kokteil"
               onClick={(e) => {
                 e.preventDefault();
-                const element = document.getElementById('kokteil');
+                const element = document.getElementById("kokteil");
                 if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
                 }
               }}
               className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
@@ -249,9 +249,12 @@ export default function Subitiya() {
               href="#seminar"
               onClick={(e) => {
                 e.preventDefault();
-                const element = document.getElementById('seminar');
+                const element = document.getElementById("seminar");
                 if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
                 }
               }}
               className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
@@ -268,9 +271,12 @@ export default function Subitiya() {
               href="#produkt"
               onClick={(e) => {
                 e.preventDefault();
-                const element = document.getElementById('produkt');
+                const element = document.getElementById("produkt");
                 if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
                 }
               }}
               className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-[#E8E8E8]/30 hover:scale-105"
@@ -300,101 +306,150 @@ export default function Subitiya() {
             </h2>
           </ScrollAnimation>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ScrollAnimation delay={100}>
-              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-5 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-10 h-1 bg-[#495464] mb-4 group-hover:w-14 transition-all duration-300"></div>
-                  <h3 className="text-lg font-bold text-[#495464] mb-3 group-hover:text-[#495464] transition-colors">
+                  <div className="w-12 h-1 bg-[#495464] mb-6 group-hover:w-16 transition-all duration-300"></div>
+                  <h3 className="text-xl font-bold text-[#495464] mb-4 group-hover:text-[#495464] transition-colors">
                     400 кв.м адаптивно пространство
                   </h3>
-                  <p className="text-base text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
-                    Гъвкава архитектура, която позволява изграждане на различни формати — от корпоративни срещи и коктейли до модни и PR събития.
+                  <p className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
+                    Гъвкава архитектура, която позволява изграждане на различни
+                    формати — от корпоративни срещи и коктейли до модни и PR
+                    събития. Пространството се персонализира спрямо концепцията
+                    на вашия бранд.
                   </p>
                 </div>
               </div>
             </ScrollAnimation>
 
             <ScrollAnimation delay={150}>
-              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-5 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-10 h-1 bg-[#495464] mb-4 group-hover:w-14 transition-all duration-300"></div>
-                  <h3 className="text-lg font-bold text-[#495464] mb-3 group-hover:text-[#495464] transition-colors">
-                    Професионален подиум / сцена
+                  <div className="w-12 h-1 bg-[#495464] mb-6 group-hover:w-16 transition-all duration-300"></div>
+                  <h3 className="text-xl font-bold text-[#495464] mb-4 group-hover:text-[#495464] transition-colors">
+                    Високи тавани за премиум присъствие
                   </h3>
-                  <p className="text-base text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
-                    Изцяло оборудвана зона за презентации, модни ревюта, дискусии и специални акценти.
+                  <p className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
+                    Впечатляващ вертикален обем, който създава усещане за
+                    свобода, стил и престиж — идеална среда за събития, които
+                    искат да оставят следа.
                   </p>
                 </div>
               </div>
             </ScrollAnimation>
 
             <ScrollAnimation delay={200}>
-              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-5 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-10 h-1 bg-[#495464] mb-4 group-hover:w-14 transition-all duration-300"></div>
-                  <h3 className="text-lg font-bold text-[#495464] mb-3 group-hover:text-[#495464] transition-colors">
-                    Ескалаторен достъп
+                  <div className="w-12 h-1 bg-[#495464] mb-6 group-hover:w-16 transition-all duration-300"></div>
+                  <h3 className="text-xl font-bold text-[#495464] mb-4 group-hover:text-[#495464] transition-colors">
+                    Професионален подиум / сцена
                   </h3>
-                  <p className="text-base text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
-                    Уникален елемент, който предлага запомнящо се влизане и максимално удобство.
+                  <p className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
+                    Изцяло оборудвана зона за презентации, модни ревюта,
+                    дискусии и специални акценти. Сцената е проектирана да
+                    поставя фокуса там, където трябва да бъде — върху вашето
+                    послание.
                   </p>
                 </div>
               </div>
             </ScrollAnimation>
 
             <ScrollAnimation delay={250}>
-              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-5 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-10 h-1 bg-[#495464] mb-4 group-hover:w-14 transition-all duration-300"></div>
-                  <h3 className="text-lg font-bold text-[#495464] mb-3 group-hover:text-[#495464] transition-colors">
-                    Професионално озвучаване и мултимедия
+                  <div className="w-12 h-1 bg-[#495464] mb-6 group-hover:w-16 transition-all duration-300"></div>
+                  <h3 className="text-xl font-bold text-[#495464] mb-4 group-hover:text-[#495464] transition-colors">
+                    Ескалаторен достъп
                   </h3>
-                  <p className="text-base text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
-                    Висококачествена аудио система с микрофони и тонколони. Екрани 75" и 55" за визуална идентичност и дигитални акценти.
+                  <p className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
+                    Уникален елемент, който предлага запомнящо се влизане и
+                    максимално удобство. Детайл, който подсилва усещането за
+                    премиум пространство още от първата секунда.
                   </p>
                 </div>
               </div>
             </ScrollAnimation>
 
             <ScrollAnimation delay={300}>
-              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-5 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-10 h-1 bg-[#495464] mb-4 group-hover:w-14 transition-all duration-300"></div>
-                  <h3 className="text-lg font-bold text-[#495464] mb-3 group-hover:text-[#495464] transition-colors">
-                    Галерийно осветление
+                  <div className="w-12 h-1 bg-[#495464] mb-6 group-hover:w-16 transition-all duration-300"></div>
+                  <h3 className="text-xl font-bold text-[#495464] mb-4 group-hover:text-[#495464] transition-colors">
+                    Професионално озвучаване
                   </h3>
-                  <p className="text-base text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
-                    Професионално светлинно оформление, което подчертава детайла и създава отлична атмосфера за фото и видео.
+                  <p className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
+                    Висококачествена аудио система с професионални микрофони,
+                    тонколони и аудио пулт, гарантиращи кристален и равномерен
+                    звук за всякакъв тип формати — реч, музика, лайв изпълнения.
                   </p>
                 </div>
               </div>
             </ScrollAnimation>
 
             <ScrollAnimation delay={350}>
-              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-5 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
-              <div className="relative z-10">
-                <div className="w-10 h-1 bg-[#495464] mb-4 group-hover:w-14 transition-all duration-300"></div>
-                <h3 className="text-lg font-bold text-[#495464] mb-3 group-hover:text-[#495464] transition-colors">
-                  Депо / Backstage зона
-                </h3>
-                <p className="text-base text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
-                  Функционално оборудвана бекстейдж площ за подготовка на участници, екип и логистика.
-                </p>
+              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-12 h-1 bg-[#495464] mb-6 group-hover:w-16 transition-all duration-300"></div>
+                  <h3 className="text-xl font-bold text-[#495464] mb-4 group-hover:text-[#495464] transition-colors">
+                    Мултимедийна техника и брандинг решения
+                  </h3>
+                  <p className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
+                    Екрани 75" и 55", възможности за визуална идентичност и
+                    дигитални акценти. Подходящо за презентации, премиери,
+                    продуктови активации и корпоративни събития.
+                  </p>
+                </div>
               </div>
-            </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={400}>
+              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-12 h-1 bg-[#495464] mb-6 group-hover:w-16 transition-all duration-300"></div>
+                  <h3 className="text-xl font-bold text-[#495464] mb-4 group-hover:text-[#495464] transition-colors">
+                    Галерийно осветление
+                  </h3>
+                  <p className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
+                    Професионално светлинно оформление, което подчертава детайла
+                    и създава отлична атмосфера за фото, видео и premium имидж
+                    комуникация.
+                  </p>
+                </div>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={450}>
+              <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-12 h-1 bg-[#495464] mb-6 group-hover:w-16 transition-all duration-300"></div>
+                  <h3 className="text-xl font-bold text-[#495464] mb-4 group-hover:text-[#495464] transition-colors">
+                    Депо / Backstage зона
+                  </h3>
+                  <p className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors">
+                    Функционално оборудвана бекстейдж площ за подготовка на
+                    участници, екип и логистика — идеална за модни ревюта,
+                    артистични формати и корпоративни събития със сложна
+                    организация.
+                  </p>
+                </div>
+              </div>
             </ScrollAnimation>
           </div>
         </div>
 
         {/* Подходящо за */}
-        <div className="mb-16 bg-gradient-to-br from-[#E8E8E8] to-[#F5F5F5] p-8 md:p-12 rounded-lg border border-[#E8E8E8] shadow-sm">
+        <div className="mb-16">
           <div className="flex items-center gap-3 mb-6">
             <span className="w-12 h-0.5 bg-[#495464]"></span>
             <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider">
@@ -402,55 +457,57 @@ export default function Subitiya() {
             </span>
           </div>
           <ScrollAnimation>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-12">
               Подходящо за:
             </h2>
           </ScrollAnimation>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ScrollAnimation delay={100}>
-              <div className="flex items-start gap-3">
-                <IconPalette className="w-5 h-5 mt-1 text-[#495464]" />
-                <span className="text-lg text-[#495464]/80">Изложби</span>
+              <div className="group relative bg-white rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#495464]/0 via-[#495464]/50 to-[#495464]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-lg font-medium text-[#495464] leading-relaxed">
+                  Изложби
+                </p>
               </div>
             </ScrollAnimation>
             <ScrollAnimation delay={150}>
-              <div className="flex items-start gap-3">
-                <IconBriefcase className="w-5 h-5 mt-1 text-[#495464]" />
-                <span className="text-lg text-[#495464]/80">
+              <div className="group relative bg-white rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#495464]/0 via-[#495464]/50 to-[#495464]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-lg font-medium text-[#495464] leading-relaxed">
                   Корпоративни срещи и презентации
-                </span>
+                </p>
               </div>
             </ScrollAnimation>
             <ScrollAnimation delay={200}>
-              <div className="flex items-start gap-3">
-                <IconNewspaper className="w-5 h-5 mt-1 text-[#495464]" />
-                <span className="text-lg text-[#495464]/80">
+              <div className="group relative bg-white rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#495464]/0 via-[#495464]/50 to-[#495464]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-lg font-medium text-[#495464] leading-relaxed">
                   PR и медийни събития
-                </span>
+                </p>
               </div>
             </ScrollAnimation>
             <ScrollAnimation delay={250}>
-              <div className="flex items-start gap-3">
-                <IconShirt className="w-5 h-5 mt-1 text-[#495464]" />
-                <span className="text-lg text-[#495464]/80">
+              <div className="group relative bg-white rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#495464]/0 via-[#495464]/50 to-[#495464]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-lg font-medium text-[#495464] leading-relaxed">
                   Модни формати и продуктови премиери
-                </span>
+                </p>
               </div>
             </ScrollAnimation>
             <ScrollAnimation delay={300}>
-              <div className="flex items-start gap-3">
-                <IconChampagne className="w-5 h-5 mt-1 text-[#495464]" />
-                <span className="text-lg text-[#495464]/80">
+              <div className="group relative bg-white rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#495464]/0 via-[#495464]/50 to-[#495464]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-lg font-medium text-[#495464] leading-relaxed">
                   Частни коктейли и специални поводи
-                </span>
+                </p>
               </div>
             </ScrollAnimation>
             <ScrollAnimation delay={350}>
-              <div className="flex items-start gap-3">
-                <IconHandshake className="w-5 h-5 mt-1 text-[#495464]" />
-                <span className="text-lg text-[#495464]/80">
+              <div className="group relative bg-white rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#495464]/0 via-[#495464]/50 to-[#495464]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-lg font-medium text-[#495464] leading-relaxed">
                   Ексклузивни бизнес срещи и networking събития
-                </span>
+                </p>
               </div>
             </ScrollAnimation>
           </div>
@@ -517,7 +574,7 @@ export default function Subitiya() {
           {eventImages.koncert.length > 0 && (
             <div className="text-center mt-8">
               <button
-                onClick={() => openEventImagesLightbox('koncert')}
+                onClick={() => openEventImagesLightbox("koncert")}
                 className="inline-flex items-center gap-2 bg-[#495464] text-white px-6 py-3 rounded-md font-medium hover:bg-[#495464]/90 transition-all duration-300 hover:shadow-lg hover:scale-105"
               >
                 Виж още снимки
@@ -566,7 +623,7 @@ export default function Subitiya() {
           {eventImages.kokteil.length > 0 && (
             <div className="text-center mt-8">
               <button
-                onClick={() => openEventImagesLightbox('kokteil')}
+                onClick={() => openEventImagesLightbox("kokteil")}
                 className="inline-flex items-center gap-2 bg-[#495464] text-white px-6 py-3 rounded-md font-medium hover:bg-[#495464]/90 transition-all duration-300 hover:shadow-lg hover:scale-105"
               >
                 Виж още снимки
@@ -615,7 +672,7 @@ export default function Subitiya() {
           {eventImages.seminar.length > 0 && (
             <div className="text-center mt-8">
               <button
-                onClick={() => openEventImagesLightbox('seminar')}
+                onClick={() => openEventImagesLightbox("seminar")}
                 className="inline-flex items-center gap-2 bg-[#495464] text-white px-6 py-3 rounded-md font-medium hover:bg-[#495464]/90 transition-all duration-300 hover:shadow-lg hover:scale-105"
               >
                 Виж още снимки
@@ -664,7 +721,7 @@ export default function Subitiya() {
           {eventImages.produkt.length > 0 && (
             <div className="text-center mt-8">
               <button
-                onClick={() => openEventImagesLightbox('produkt')}
+                onClick={() => openEventImagesLightbox("produkt")}
                 className="inline-flex items-center gap-2 bg-[#495464] text-white px-6 py-3 rounded-md font-medium hover:bg-[#495464]/90 transition-all duration-300 hover:shadow-lg hover:scale-105"
               >
                 Виж още снимки
