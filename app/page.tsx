@@ -93,8 +93,7 @@ export default async function Home() {
               <div className="space-y-6 mb-8">
                 <ScrollAnimation delay={100}>
                   <p className="text-lg text-[#495464]/80 leading-relaxed" style={{ fontFamily: "var(--font-montserrat), sans-serif" }}>
-                    nOva art space е съвременна галерия и премиум пространство за
-                    събития, което съчетава изкуство, архитектура и бизнес визия.
+                    nOva art space е съвременна галерия и премиум пространство за изкуство и събития, където изложбите създават контекст, а изкуството добавя стойност, характер и престиж към всяко преживяване.
                   </p>
                 </ScrollAnimation>
                 <ScrollAnimation delay={200}>
@@ -259,8 +258,7 @@ export default async function Home() {
             </h2>
             <ScrollAnimation>
               <h3 className="text-xl md:text-2xl text-[#495464]/90 mb-8 font-medium leading-relaxed" style={{ fontFamily: "var(--font-montserrat), sans-serif" }}>
-                Пространство, създадено да издига всяка идея — с възможностите на
-                галерия и въздействието на премиум локация.
+                Премиум локация за корпоративни и частни събития, където изкуството не е фон, а добавя стойност, характер и престиж. Галерийната атмосфера превръща всяка идея в преживяване — подходящо за коктейли, продуктови премиери, бизнес срещи, PR формати и заснемане.
               </h3>
             </ScrollAnimation>
             <div className="mb-8 rounded-lg overflow-hidden">

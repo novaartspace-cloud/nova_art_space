@@ -196,8 +196,8 @@ export default function Subitiya() {
             className="text-2xl md:text-3xl text-[#495464]/90 mb-12 font-medium leading-relaxed"
             style={{ fontFamily: "var(--font-playfair), serif" }}
           >
-            Пространство, създадено да издига всяка идея — с възможностите на
-            галерия и въздействието на премиум локация.
+            Пространство, което превръща всяко събитие в преживяване с
+            въздействието на изкуството и силата на премиум локация.
           </h2>
         </ScrollAnimation>
 
@@ -340,10 +340,8 @@ export default function Subitiya() {
                     className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors"
                     style={{ fontFamily: "var(--font-playfair), serif" }}
                   >
-                    Гъвкава архитектура, която позволява изграждане на различни
-                    формати — от корпоративни срещи и коктейли до модни и PR
-                    събития. Пространството се персонализира спрямо концепцията
-                    на вашия бранд.
+                    Гъвкава среда, която позволява различни формати — от изложби
+                    и корпоративни срещи до коктейли и PR събития.
                   </p>
                 </div>
               </div>
@@ -474,15 +472,14 @@ export default function Subitiya() {
                     className="text-xl font-bold text-[#495464] mb-4 group-hover:text-[#495464] transition-colors"
                     style={{ fontFamily: "var(--font-playfair), serif" }}
                   >
-                    Галерийно осветление
+                    Кетъринг
                   </h3>
                   <p
                     className="text-[#495464]/80 leading-relaxed group-hover:text-[#495464]/90 transition-colors"
                     style={{ fontFamily: "var(--font-playfair), serif" }}
                   >
-                    Професионално светлинно оформление, което подчертава детайла
-                    и създава отлична атмосфера за фото, видео и premium имидж
-                    комуникация.
+                    Гъвкави кетъринг решения, адаптирани към събитието и
+                    предпочитанията на клиента.
                   </p>
                 </div>
               </div>
