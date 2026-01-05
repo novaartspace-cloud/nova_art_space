@@ -67,6 +67,7 @@ export default function Kontakti() {
         <Link
           href="/"
           className="inline-flex items-center gap-2 mb-8 text-[#495464] hover:text-[#495464] font-medium transition-colors duration-300 group"
+          style={{ fontFamily: "var(--font-playfair), serif" }}
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
