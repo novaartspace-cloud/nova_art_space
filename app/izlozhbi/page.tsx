@@ -26,7 +26,7 @@ export default async function Izlozhbi() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 bg-[#495464] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#495464]/90 transition-all duration-300 hover:shadow-md hover:scale-105 group mb-8"
+          className="back-button-animate inline-flex items-center gap-1.5 bg-[#495464] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#495464]/90 transition-all duration-300 hover:shadow-md hover:scale-105 group mb-8"
           style={{ fontFamily: "var(--font-playfair), serif" }}
         >
           <svg
@@ -51,9 +51,6 @@ export default async function Izlozhbi() {
             Изложби
           </span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-[#495464] mb-12" style={{ fontFamily: "var(--font-playfair), serif" }}>
-          Изложби
-        </h1>
 
         {/* Настояща изложба */}
         {currentExhibition && (
