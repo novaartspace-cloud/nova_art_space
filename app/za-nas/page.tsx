@@ -128,14 +128,6 @@ export default function ZaNas() {
               История
             </span>
           </div>
-          <ScrollAnimation>
-            <h2
-              className="text-3xl md:text-4xl font-bold text-[#495464] mb-6"
-              style={{ fontFamily: "var(--font-playfair), serif" }}
-            >
-              Нашата история
-            </h2>
-          </ScrollAnimation>
 
           {/* Mobile version - alternating text and carousel */}
           <div className="md:hidden space-y-6 text-lg text-[#495464]/80 leading-relaxed">
@@ -393,14 +385,6 @@ export default function ZaNas() {
                 Мисия
               </span>
             </div>
-            <ScrollAnimation>
-              <h2
-                className="text-3xl md:text-4xl font-bold text-[#495464] mb-6"
-                style={{ fontFamily: "var(--font-playfair), serif" }}
-              >
-                Нашата мисия
-              </h2>
-            </ScrollAnimation>
             <ScrollAnimation delay={100}>
               <div className="bg-gradient-to-r from-[#9CA3AF] to-[#B0B8C4] rounded-xl p-6 md:p-8 mb-8 shadow-md">
                 <p
@@ -640,12 +624,6 @@ export default function ZaNas() {
                 Аудитория
               </span>
             </div>
-            <h2
-              className="text-3xl md:text-4xl font-bold text-[#495464] mb-6"
-              style={{ fontFamily: "var(--font-playfair), serif" }}
-            >
-              Нашата аудитория
-            </h2>
             <div className="bg-gradient-to-r from-[#9CA3AF] to-[#B0B8C4] rounded-xl p-6 md:p-8 mb-8 shadow-md">
               <p
                 className="text-2xl md:text-3xl text-white font-normal leading-relaxed italic"
