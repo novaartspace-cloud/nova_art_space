@@ -219,7 +219,7 @@ export default async function Home() {
                 className="text-3xl md:text-4xl font-bold text-[#495464] mb-2"
                 style={{ fontFamily: "var(--font-playfair), serif" }}
               >
-                {currentExhibition.title}
+                {currentExhibition.title.replace(/^Настояща изложба:\s*/i, "")}
               </h2>
               {currentExhibition.subtitle && (
                 <ScrollAnimation>

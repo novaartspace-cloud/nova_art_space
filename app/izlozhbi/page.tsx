@@ -67,7 +67,7 @@ export default async function Izlozhbi() {
 
               {/* Title */}
               <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-3" style={{ fontFamily: "var(--font-playfair), serif" }}>
-                {currentExhibition.title}
+                {currentExhibition.title.replace(/^Настояща изложба:\s*/i, '')}
               </h2>
 
               {/* Subtitle */}
