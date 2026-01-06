@@ -522,7 +522,7 @@ export default async function Home() {
                     className="font-semibold text-[#495464]"
                     style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
                   >
-                    Имейл
+                    E-mail
                   </h3>
                 </div>
                 <a

@@ -87,7 +87,10 @@ export default function Kontakti() {
 
         <div className="flex items-center gap-3 mb-6">
           <span className="w-12 h-0.5 bg-[#495464]"></span>
-          <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider" style={{ fontFamily: "var(--font-playfair), serif" }}>
+          <span
+            className="text-sm font-semibold text-[#495464] uppercase tracking-wider"
+            style={{ fontFamily: "var(--font-playfair), serif" }}
+          >
             Контакти
           </span>
         </div>
@@ -97,7 +100,12 @@ export default function Kontakti() {
             <div className="bg-[#E8E8E8]/30 rounded-lg p-6 border border-[#E8E8E8] hover:shadow-md transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <IconLocation className="w-8 h-8 text-[#495464]" />
-                <h2 className="text-2xl font-bold text-[#495464]" style={{ fontFamily: "var(--font-playfair), serif" }}>Адрес</h2>
+                <h2
+                  className="text-2xl font-bold text-[#495464]"
+                  style={{ fontFamily: "var(--font-playfair), serif" }}
+                >
+                  Адрес
+                </h2>
               </div>
               <a
                 href="https://maps.google.com/?q=ул.+Съборна+№+3,+София"
@@ -113,7 +121,12 @@ export default function Kontakti() {
             <div className="bg-[#E8E8E8]/30 rounded-lg p-6 border border-[#E8E8E8] hover:shadow-md transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <IconPhone className="w-8 h-8 text-[#495464]" />
-                <h2 className="text-2xl font-bold text-[#495464]" style={{ fontFamily: "var(--font-playfair), serif" }}>Телефон</h2>
+                <h2
+                  className="text-2xl font-bold text-[#495464]"
+                  style={{ fontFamily: "var(--font-playfair), serif" }}
+                >
+                  Телефон
+                </h2>
               </div>
               <a
                 href="tel:0888426610"
@@ -127,7 +140,12 @@ export default function Kontakti() {
             <div className="bg-[#E8E8E8]/30 rounded-lg p-6 border border-[#E8E8E8] hover:shadow-md transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <IconMail className="w-8 h-8 text-[#495464]" />
-                <h2 className="text-2xl font-bold text-[#495464]" style={{ fontFamily: "var(--font-playfair), serif" }}>Имейл</h2>
+                <h2
+                  className="text-2xl font-bold text-[#495464]"
+                  style={{ fontFamily: "var(--font-playfair), serif" }}
+                >
+                  E-mail
+                </h2>
               </div>
               <a
                 href="mailto:novaartspace@gmail.com"
@@ -141,7 +159,10 @@ export default function Kontakti() {
             <div className="bg-[#E8E8E8]/30 rounded-lg p-6 border border-[#E8E8E8] hover:shadow-md transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <IconGlobe className="w-8 h-8 text-[#495464]" />
-                <h2 className="text-2xl font-bold text-[#495464]" style={{ fontFamily: "var(--font-playfair), serif" }}>
+                <h2
+                  className="text-2xl font-bold text-[#495464]"
+                  style={{ fontFamily: "var(--font-playfair), serif" }}
+                >
                   Социални мрежи
                 </h2>
               </div>
@@ -171,7 +192,12 @@ export default function Kontakti() {
           </div>
 
           <div className="mt-8 mb-16">
-            <h2 className="text-2xl font-bold text-[#495464] mb-4" style={{ fontFamily: "var(--font-playfair), serif" }}>Карта</h2>
+            <h2
+              className="text-2xl font-bold text-[#495464] mb-4"
+              style={{ fontFamily: "var(--font-playfair), serif" }}
+            >
+              Карта
+            </h2>
             <div className="rounded-lg overflow-hidden shadow-md border border-[#E8E8E8]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.5!2d23.3219!3d42.6975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDQxJzUxLjAiTiAyM8KwMTknMTkuNCJF!5e0!3m2!1sen!2sbg!4v1234567890"
@@ -193,14 +219,23 @@ export default function Kontakti() {
           >
             <div className="flex items-center gap-3 mb-6">
               <span className="w-12 h-0.5 bg-[#495464]"></span>
-              <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider" style={{ fontFamily: "var(--font-playfair), serif" }}>
+              <span
+                className="text-sm font-semibold text-[#495464] uppercase tracking-wider"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
                 Запитване
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#495464] mb-8" style={{ fontFamily: "var(--font-playfair), serif" }}>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-[#495464] mb-8"
+              style={{ fontFamily: "var(--font-playfair), serif" }}
+            >
               Изпрати запитване
             </h2>
-            <p className="text-lg text-[#495464]/70 mb-8" style={{ fontFamily: "var(--font-playfair), serif" }}>
+            <p
+              className="text-lg text-[#495464]/70 mb-8"
+              style={{ fontFamily: "var(--font-playfair), serif" }}
+            >
               Попълнете формата по-долу и ще се свържем с вас възможно
               най-скоро.
             </p>
@@ -295,7 +330,10 @@ export default function Kontakti() {
 
       <footer className="bg-gradient-to-b from-[#495464] to-[#3a4149] text-white py-12 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-white/80 text-sm" style={{ fontFamily: "var(--font-playfair), serif" }}>
+          <p
+            className="text-white/80 text-sm"
+            style={{ fontFamily: "var(--font-playfair), serif" }}
+          >
             © {new Date().getFullYear()} nOva art space. Всички права запазени.
           </p>
         </div>

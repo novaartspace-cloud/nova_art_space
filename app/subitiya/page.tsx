@@ -325,7 +325,7 @@ export default function Subitiya() {
             </h2>
           </ScrollAnimation>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <ScrollAnimation delay={100}>
               <div className="group relative bg-gradient-to-br from-white to-[#E8E8E8]/30 rounded-xl p-6 border border-[#E8E8E8] hover:border-[#495464]/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#495464]/0 to-[#495464]/0 group-hover:from-[#495464]/5 group-hover:to-[#495464]/10 transition-all duration-500"></div>
