@@ -190,7 +190,7 @@ export default async function Home() {
             </div>
 
             {/* Right side - Video */}
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden md:p-8 md:max-w-md">
               <AutoPlayVideo
                 src="/video.mp4"
                 className="w-full h-auto object-cover"
@@ -234,13 +234,13 @@ export default async function Home() {
 
               {/* Main Image */}
               {currentExhibition.mainImage && (
-                <div className="mb-8 rounded-lg overflow-hidden">
+                <div className="mb-8 rounded-lg overflow-hidden md:max-w-lg md:max-h-[400px]">
                   <Image
                     src={currentExhibition.mainImage}
                     alt={`${currentExhibition.title} - Изложба в nOva art space, арт галерия София`}
                     width={800}
                     height={500}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover md:max-h-[400px]"
                     title={`${currentExhibition.title} - Арт галерия София`}
                   />
                 </div>
@@ -338,13 +338,13 @@ export default async function Home() {
                 </p>
               </ScrollAnimation>
             </div>
-            <div className="mb-8 rounded-lg overflow-hidden">
+            <div className="mb-8 rounded-lg overflow-hidden md:max-w-lg md:max-h-[400px]">
               <Image
                 src="/zala1.jpg"
                 alt="nOva art space зала за събития - Премиум пространство за събития в арт галерия София"
                 width={1200}
                 height={675}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover md:max-h-[400px]"
                 title="nOva art space - Премиум пространство за събития, София"
               />
             </div>
@@ -418,13 +418,13 @@ export default async function Home() {
                   </ScrollAnimation>
                 )}
                 {mainNews.mainImage && (
-                  <div className="mb-6 rounded-lg overflow-hidden">
+                  <div className="mb-6 rounded-lg overflow-hidden md:max-w-lg md:max-h-[400px]">
                     <Image
                       src={mainNews.mainImage}
                       alt={`${mainNews.title} - Новини от nOva art space, арт галерия София`}
                       width={800}
                       height={500}
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-cover md:max-h-[400px]"
                       title={`${mainNews.title} - Арт галерия София`}
                     />
                   </div>
