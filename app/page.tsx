@@ -76,7 +76,7 @@ export default async function Home() {
 
       {/* За нас */}
       <section
-        className="py-20 bg-white relative"
+        className="py-12 bg-white relative"
         itemScope
         itemType="https://schema.org/AboutPage"
       >
@@ -85,7 +85,7 @@ export default async function Home() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left side - Text content */}
             <div>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <span className="w-12 h-0.5 bg-[#495464]"></span>
                 <span
                   className="text-sm font-semibold text-[#495464] uppercase tracking-wider"
@@ -96,14 +96,14 @@ export default async function Home() {
               </div>
               <ScrollAnimation>
                 <h1
-                  className="text-3xl md:text-4xl font-bold text-[#495464] mb-6"
+                  className="text-3xl md:text-4xl font-bold text-[#495464] mb-4"
                   itemProp="headline"
                   style={{ fontFamily: "var(--font-playfair), serif" }}
                 >
                   Галерия с история на две поколения и поглед към бъдещето
                 </h1>
               </ScrollAnimation>
-              <div className="space-y-6 mb-8">
+              <div className="space-y-4 mb-6">
                 <ScrollAnimation delay={100}>
                   <p
                     className="text-lg text-[#495464]/80 leading-relaxed"
@@ -129,9 +129,9 @@ export default async function Home() {
               <div className="flex flex-wrap gap-4 mb-8">
                 <ScrollAnimation delay={300}>
                   <div className="flex items-center gap-2 text-[#495464]/70">
-                    <IconBuilding className="w-5 h-5 text-[#495464]" />
+                    <IconBuilding className="w-4 h-4 text-[#495464]" />
                     <span
-                      className="text-sm"
+                      className="feature-badge-text"
                       style={{
                         fontFamily: "var(--font-montserrat), sans-serif",
                       }}
@@ -142,9 +142,9 @@ export default async function Home() {
                 </ScrollAnimation>
                 <ScrollAnimation delay={400}>
                   <div className="flex items-center gap-2 text-[#495464]/70">
-                    <IconUsers className="w-5 h-5 text-[#495464]" />
+                    <IconUsers className="w-4 h-4 text-[#495464]" />
                     <span
-                      className="text-sm"
+                      className="feature-badge-text"
                       style={{
                         fontFamily: "var(--font-montserrat), sans-serif",
                       }}
@@ -155,9 +155,9 @@ export default async function Home() {
                 </ScrollAnimation>
                 <ScrollAnimation delay={500}>
                   <div className="flex items-center gap-2 text-[#495464]/70">
-                    <IconPalette className="w-5 h-5 text-[#495464]" />
+                    <IconPalette className="w-4 h-4 text-[#495464]" />
                     <span
-                      className="text-sm"
+                      className="feature-badge-text"
                       style={{
                         fontFamily: "var(--font-montserrat), sans-serif",
                       }}
@@ -202,11 +202,11 @@ export default async function Home() {
 
       {/* Настояща изложба */}
       {currentExhibition && (
-        <section className="py-20 bg-gradient-to-br from-[#E8E8E8] to-[#F5F5F5] relative overflow-hidden">
+        <section className="py-12 bg-gradient-to-br from-[#E8E8E8] to-[#F5F5F5] relative overflow-hidden">
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-20 -ml-48 -mb-48"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-4xl">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <span className="w-12 h-0.5 bg-[#495464]"></span>
                 <span
                   className="text-sm font-semibold text-[#495464] uppercase tracking-wider"
@@ -224,7 +224,7 @@ export default async function Home() {
               {currentExhibition.subtitle && (
                 <ScrollAnimation>
                   <p
-                    className="text-base md:text-lg text-[#495464]/60 mb-6 font-normal"
+                    className="text-base md:text-lg text-[#495464]/60 mb-4 font-normal"
                     style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
                   >
                     {currentExhibition.subtitle}
@@ -305,7 +305,7 @@ export default async function Home() {
       )}
 
       {/* Организирай събитие */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-12 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#E8E8E8] rounded-full blur-3xl opacity-30 -mr-48 -mt-48"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
@@ -324,7 +324,7 @@ export default async function Home() {
             >
               nOva art space – сцена за Вашите идеи
             </h2>
-            <div className="space-y-6 mb-8">
+            <div className="space-y-4 mb-6">
               <ScrollAnimation delay={100}>
                 <p
                   className="text-lg text-[#495464]/80 leading-relaxed"
@@ -373,7 +373,7 @@ export default async function Home() {
       </section>
 
       {/* Новини и акценти */}
-      <section className="py-20 bg-gradient-to-br from-[#E8E8E8] to-[#F5F5F5] relative overflow-hidden">
+      <section className="py-12 bg-gradient-to-br from-[#E8E8E8] to-[#F5F5F5] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl opacity-20 -mr-48 -mt-48"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
@@ -389,7 +389,7 @@ export default async function Home() {
 
             {/* Главна новина */}
             {mainNews && (
-              <div className="mb-12 pb-8 border-b-2 border-[#E8E8E8]">
+              <div className="mb-8 pb-6 border-b-2 border-[#E8E8E8]">
                 <div className="mb-4">
                   <span
                     className="inline-flex items-center gap-2 bg-[#495464] text-white px-5 py-2 rounded-full text-sm font-medium shadow-md"
@@ -457,11 +457,11 @@ export default async function Home() {
       </section>
 
       {/* Контакти */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-12 bg-white relative overflow-hidden">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#E8E8E8] rounded-full blur-3xl opacity-30 -mr-48 -mb-48"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-4">
               <span className="w-12 h-0.5 bg-[#495464]"></span>
               <span
                 className="text-sm font-semibold text-[#495464] uppercase tracking-wider"
@@ -471,7 +471,7 @@ export default async function Home() {
               </span>
             </div>
             <h2
-              className="text-3xl md:text-4xl font-bold text-[#495464] mb-8"
+              className="text-3xl md:text-4xl font-bold text-[#495464] mb-6"
               style={{ fontFamily: "var(--font-playfair), serif" }}
             >
               Свържете се с нас

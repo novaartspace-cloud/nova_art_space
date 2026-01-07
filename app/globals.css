@@ -120,6 +120,12 @@ p.card-text {
   line-height: 1.5 !important;
 }
 
+/* Small feature text - override span styles for feature badges */
+span.feature-badge-text {
+  font-size: 0.75rem !important; /* 12px - smaller text for feature badges */
+  line-height: 1.5 !important;
+}
+
 /* Button alignment change */
 a.btn {
   align-items: flex-end;

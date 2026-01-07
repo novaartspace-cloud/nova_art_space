@@ -194,7 +194,7 @@ export default function Subitiya() {
         </ScrollAnimation>
         <ScrollAnimation delay={100}>
           <p
-            className="text-lg md:text-xl text-[#495464]/70 mb-6 font-medium leading-relaxed"
+            className="text-lg md:text-xl text-[#495464]/70 mb-3 font-medium leading-relaxed"
             style={{ fontFamily: "var(--font-playfair), serif" }}
           >
             Пространство, което превръща всяко събитие в преживяване с
@@ -203,8 +203,8 @@ export default function Subitiya() {
         </ScrollAnimation>
 
         {/* Gallery Overview */}
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-0.5 bg-[#495464]"></span>
             <span
               className="text-sm font-semibold text-[#495464] uppercase tracking-wider"
