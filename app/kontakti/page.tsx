@@ -18,6 +18,7 @@ export default function Kontakti() {
     phone: "",
     message: "",
   });
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -26,6 +27,15 @@ export default function Kontakti() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!privacyConsent) {
+      setSubmitStatus({
+        type: "error",
+        message: "Моля, приемете Политиката за Поверителност, за да продължите.",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 
@@ -47,6 +57,7 @@ export default function Kontakti() {
         message: "Съобщението е изпратено успешно! Ще се свържем с вас скоро.",
       });
       setFormData({ email: "", phone: "", message: "" });
+      setPrivacyConsent(false);
     } catch (error) {
       setSubmitStatus({
         type: "error",
@@ -315,9 +326,36 @@ export default function Kontakti() {
                 </div>
               )}
 
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="privacy-consent"
+                  checked={privacyConsent}
+                  onChange={(e) => setPrivacyConsent(e.target.checked)}
+                  required
+                  className="mt-1 w-5 h-5 text-[#495464] border-[#E8E8E8] rounded focus:ring-2 focus:ring-[#495464] cursor-pointer"
+                />
+                <label
+                  htmlFor="privacy-consent"
+                  className="text-sm text-[#495464]/80 leading-relaxed cursor-pointer"
+                  style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
+                >
+                  Съгласен/а съм с{" "}
+                  <Link
+                    href="/politika-za-poveritelnost"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#495464] hover:underline font-semibold"
+                  >
+                    Политиката за Поверителност
+                  </Link>
+                  <span className="text-red-500"> *</span>
+                </label>
+              </div>
+
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !privacyConsent}
                 className="w-full bg-[#495464] text-white px-8 py-4 rounded-lg font-medium hover:bg-[#3a4149] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ fontFamily: "var(--font-playfair), serif" }}
               >
