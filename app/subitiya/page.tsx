@@ -51,13 +51,14 @@ export default function Subitiya() {
   ];
 
   const productImages = [
-    "/product1.jpg",
     "/product2.jpg",
-    "/product3.jpg",
-    "/product4.jpg",
-    "/product5.jpg",
-    "/product6.jpg",
     "/product7.jpg",
+    "/product8.jpg",
+    "/zala2.jpg",
+    "/product6.jpg",
+    "/product9.jpg",
+    "/product10.jpg",
+    "/product3.jpg",
   ];
 
   const openLightbox = (images: string[], index: number) => {
@@ -808,22 +809,129 @@ export default function Subitiya() {
               Продуктови събития
             </h2>
           </ScrollAnimation>
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            {productImages.map((src, index) => (
+          <div className="space-y-6">
+            {/* Първи ред */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Колона 1 - две снимки вертикално */}
+              <div className="flex flex-col gap-6">
+                <div
+                  onClick={() => openLightbox(productImages, 0)}
+                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                  style={{ height: "320px" }}
+                >
+                  <Image
+                    src="/product2.jpg"
+                    alt="Продукт 1"
+                    width={400}
+                    height={320}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div
+                  onClick={() => openLightbox(productImages, 1)}
+                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                  style={{ height: "320px" }}
+                >
+                  <Image
+                    src="/product7.jpg"
+                    alt="Продукт 2"
+                    width={400}
+                    height={320}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              
+              {/* Колона 2 - една снимка */}
               <div
-                key={src}
-                onClick={() => openLightbox(productImages, index)}
-                className="break-inside-avoid rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 mb-6 cursor-pointer"
+                onClick={() => openLightbox(productImages, 2)}
+                className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                style={{ height: "652px" }}
               >
                 <Image
-                  src={src}
-                  alt={`Продукт ${index + 1}`}
+                  src="/product8.jpg"
+                  alt="Продукт 3"
                   width={400}
-                  height={300}
-                  className="w-full h-auto object-contain"
+                  height={652}
+                  className="w-full h-full object-cover"
                 />
               </div>
-            ))}
+              
+              {/* Колона 3 - две снимки вертикално */}
+              <div className="flex flex-col gap-6">
+                <div
+                  onClick={() => openLightbox(productImages, 3)}
+                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                  style={{ height: "320px" }}
+                >
+                  <Image
+                    src="/zala2.jpg"
+                    alt="Зала 2"
+                    width={400}
+                    height={320}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div
+                  onClick={() => openLightbox(productImages, 4)}
+                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                  style={{ height: "320px" }}
+                >
+                  <Image
+                    src="/product6.jpg"
+                    alt="Продукт 4"
+                    width={400}
+                    height={320}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {/* Втори ред */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Колона 1 */}
+              <div
+                onClick={() => openLightbox(productImages, 5)}
+                className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+              >
+                <Image
+                  src="/product9.jpg"
+                  alt="Продукт 5"
+                  width={400}
+                  height={300}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              
+              {/* Колона 2 */}
+              <div
+                onClick={() => openLightbox(productImages, 6)}
+                className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+              >
+                <Image
+                  src="/product10.jpg"
+                  alt="Продукт 6"
+                  width={400}
+                  height={300}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              
+              {/* Колона 3 */}
+              <div
+                onClick={() => openLightbox(productImages, 7)}
+                className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+              >
+                <Image
+                  src="/product3.jpg"
+                  alt="Продукт 7"
+                  width={400}
+                  height={300}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
           </div>
           {eventImages.produkt.length > 0 && (
             <div className="text-center mt-8">
