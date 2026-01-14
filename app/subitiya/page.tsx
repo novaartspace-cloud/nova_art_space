@@ -46,7 +46,7 @@ export default function Subitiya() {
     "/seminar1.jpg",
     "/seminar2.jpg",
     "/seminar3.jpg",
-    "/seminar4.jpg",
+    "/seminarnew.jpg",
     "/seminar5.jpg",
   ];
 

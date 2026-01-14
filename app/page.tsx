@@ -327,7 +327,7 @@ export default async function Home() {
             </div>
             <div className="mb-8 rounded-lg overflow-hidden md:max-w-lg md:max-h-[400px]">
               <Image
-                src="/zala1.jpg"
+                src="/zala2.jpg"
                 alt="nOva art space зала за събития - Премиум пространство за събития в арт галерия София"
                 width={1200}
                 height={675}
