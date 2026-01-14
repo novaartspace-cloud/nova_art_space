@@ -52,7 +52,10 @@ export default async function ExhibitionDetail({ params }: PageProps) {
 
         <div className="flex items-center gap-3 mb-8">
           <span className="w-12 h-0.5 bg-[#495464]"></span>
-          <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider" style={{ fontFamily: "var(--font-playfair), serif" }}>
+          <span
+            className="text-sm font-semibold text-[#495464] uppercase tracking-wider"
+            style={{ fontFamily: "var(--font-playfair), serif" }}
+          >
             Изложба
           </span>
         </div>
@@ -60,7 +63,10 @@ export default async function ExhibitionDetail({ params }: PageProps) {
         {/* Current exhibition badge */}
         {exhibition.position === 0 && (
           <div className="mb-6">
-            <span className="inline-flex items-center gap-2 bg-[#495464] text-white px-5 py-2 rounded-full text-sm font-medium shadow-md" style={{ fontFamily: "var(--font-playfair), serif" }}>
+            <span
+              className="inline-flex items-center gap-2 bg-[#495464] text-white px-5 py-2 rounded-full text-sm font-medium shadow-md"
+              style={{ fontFamily: "var(--font-playfair), serif" }}
+            >
               <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
               Настояща
             </span>
@@ -68,12 +74,18 @@ export default async function ExhibitionDetail({ params }: PageProps) {
         )}
 
         <div className="mb-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#495464]" style={{ fontFamily: "var(--font-playfair), serif" }}>
+          <h1
+            className="text-4xl md:text-5xl font-bold text-[#495464]"
+            style={{ fontFamily: "var(--font-playfair), serif" }}
+          >
             {exhibition.title}
           </h1>
           {exhibition.subtitle && (
             <ScrollAnimation>
-              <p className="text-2xl md:text-3xl text-[#495464]/50 mt-2" style={{ fontFamily: "var(--font-playfair), serif" }}>
+              <p
+                className="text-2xl md:text-3xl text-[#495464]/50 mt-2"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
                 {exhibition.subtitle}
               </p>
             </ScrollAnimation>
@@ -100,7 +112,10 @@ export default async function ExhibitionDetail({ params }: PageProps) {
               (paragraph, idx) =>
                 paragraph.trim() && (
                   <ScrollAnimation key={idx} delay={idx * 100}>
-                    <p className="text-lg text-[#495464]/80 leading-relaxed" style={{ fontFamily: "var(--font-playfair), serif" }}>
+                    <p
+                      className="text-lg text-[#495464]/80 leading-relaxed"
+                      style={{ fontFamily: "var(--font-playfair), serif" }}
+                    >
                       {paragraph.trim()}
                     </p>
                   </ScrollAnimation>
@@ -114,16 +129,22 @@ export default async function ExhibitionDetail({ params }: PageProps) {
           <div className="space-y-2">
             {exhibition.date && (
               <ScrollAnimation>
-                <p className="text-lg text-[#495464]/90 leading-relaxed font-medium flex items-center gap-2" style={{ fontFamily: "var(--font-playfair), serif" }}>
+                <p
+                  className="text-lg text-[#495464]/90 leading-relaxed font-medium flex items-center gap-2"
+                  style={{ fontFamily: "var(--font-playfair), serif" }}
+                >
                   <IconCalendar className="w-5 h-5 text-[#495464]" />
                   {exhibition.date.includes("Изложбата")
                     ? exhibition.date
-                    : `Датата на изложбата е ${exhibition.date}`}
+                    : `${exhibition.date}`}
                 </p>
               </ScrollAnimation>
             )}
             <ScrollAnimation delay={100}>
-              <p className="text-base text-[#495464]/70 flex items-center gap-2" style={{ fontFamily: "var(--font-playfair), serif" }}>
+              <p
+                className="text-base text-[#495464]/70 flex items-center gap-2"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
                 <IconLocation className="w-5 h-5 text-[#495464]" />
                 Галерия nOva art space, ул. Съборна №3 (ниво -1)
               </p>
@@ -135,12 +156,18 @@ export default async function ExhibitionDetail({ params }: PageProps) {
         {exhibition.author && (
           <div className="mb-8">
             <ScrollAnimation>
-              <p className="text-sm font-semibold text-[#495464] mb-2" style={{ fontFamily: "var(--font-playfair), serif" }}>
+              <p
+                className="text-sm font-semibold text-[#495464] mb-2"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
                 {exhibition.author.includes(",") ? "Автори" : "Автор"}
               </p>
             </ScrollAnimation>
             <ScrollAnimation delay={100}>
-              <p className="text-lg text-[#495464]/80 italic border-l-2 border-[#BBBFCA] pl-4" style={{ fontFamily: "var(--font-playfair), serif" }}>
+              <p
+                className="text-lg text-[#495464]/80 italic border-l-2 border-[#BBBFCA] pl-4"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
                 {exhibition.author}
               </p>
             </ScrollAnimation>
@@ -152,7 +179,10 @@ export default async function ExhibitionDetail({ params }: PageProps) {
           <div>
             <div className="flex items-center gap-3 mb-8">
               <span className="w-12 h-0.5 bg-[#495464]"></span>
-              <span className="text-sm font-semibold text-[#495464] uppercase tracking-wider" style={{ fontFamily: "var(--font-playfair), serif" }}>
+              <span
+                className="text-sm font-semibold text-[#495464] uppercase tracking-wider"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
                 Галерия
               </span>
             </div>
@@ -166,7 +196,10 @@ export default async function ExhibitionDetail({ params }: PageProps) {
 
       <footer className="bg-gradient-to-b from-[#495464] to-[#3a4149] text-white py-12 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-white/80 text-sm" style={{ fontFamily: "var(--font-playfair), serif" }}>
+          <p
+            className="text-white/80 text-sm"
+            style={{ fontFamily: "var(--font-playfair), serif" }}
+          >
             © {new Date().getFullYear()} nOva art space. Всички права запазени.
           </p>
         </div>
@@ -174,6 +207,3 @@ export default async function ExhibitionDetail({ params }: PageProps) {
     </div>
   );
 }
-
-
-
