@@ -186,7 +186,7 @@ export default function Subitiya() {
         </div>
         <ScrollAnimation>
           <h2
-            className="text-2xl md:text-3xl font-bold text-[#495464] mb-3"
+            className="text-3xl md:text-4xl font-bold text-[#495464] mb-4"
             style={{ fontFamily: "var(--font-playfair), serif" }}
           >
             nOva art space – сцена за Вашите идеи
