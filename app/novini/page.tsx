@@ -155,6 +155,7 @@ export default async function Novini() {
                                 width={400}
                                 height={300}
                                 className="w-full h-64 md:h-full object-cover"
+                                style={{ width: "auto" }}
                               />
                             </div>
                           </div>

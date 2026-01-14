@@ -228,6 +228,7 @@ export default async function Home() {
                     width={800}
                     height={500}
                     className="w-full h-auto object-cover md:max-h-[400px]"
+                    style={{ height: "auto" }}
                     title={`${currentExhibition.title} - Арт галерия София`}
                   />
                 </div>
@@ -332,6 +333,7 @@ export default async function Home() {
                 width={1200}
                 height={675}
                 className="w-full h-auto object-cover md:max-h-[400px]"
+                style={{ height: "auto" }}
                 title="nOva art space - Премиум пространство за събития, София"
               />
             </div>
@@ -412,6 +414,7 @@ export default async function Home() {
                       width={800}
                       height={500}
                       className="w-full h-auto object-cover md:max-h-[400px]"
+                      style={{ height: "auto" }}
                       title={`${mainNews.title} - Арт галерия София`}
                     />
                   </div>

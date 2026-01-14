@@ -663,6 +663,7 @@ export default function Subitiya() {
                   width={400}
                   height={300}
                   className="w-full h-auto object-contain"
+                  style={{ height: "auto" }}
                 />
               </div>
             ))}
@@ -716,6 +717,7 @@ export default function Subitiya() {
                   width={400}
                   height={300}
                   className="w-full h-auto object-contain"
+                  style={{ height: "auto" }}
                 />
               </div>
             ))}
@@ -769,6 +771,7 @@ export default function Subitiya() {
                   width={400}
                   height={300}
                   className="w-full h-auto object-contain"
+                  style={{ height: "auto" }}
                 />
               </div>
             ))}
@@ -816,28 +819,26 @@ export default function Subitiya() {
               <div className="flex flex-col gap-6">
                 <div
                   onClick={() => openLightbox(productImages, 0)}
-                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer relative"
                   style={{ height: "320px" }}
                 >
                   <Image
                     src="/product2.jpg"
                     alt="Продукт 1"
-                    width={400}
-                    height={320}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div
                   onClick={() => openLightbox(productImages, 1)}
-                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer relative"
                   style={{ height: "320px" }}
                 >
                   <Image
                     src="/product7.jpg"
                     alt="Продукт 2"
-                    width={400}
-                    height={320}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -845,15 +846,14 @@ export default function Subitiya() {
               {/* Колона 2 - една снимка */}
               <div
                 onClick={() => openLightbox(productImages, 2)}
-                className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer relative"
                 style={{ height: "652px" }}
               >
                 <Image
                   src="/product8.jpg"
                   alt="Продукт 3"
-                  width={400}
-                  height={652}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
               
@@ -861,28 +861,26 @@ export default function Subitiya() {
               <div className="flex flex-col gap-6">
                 <div
                   onClick={() => openLightbox(productImages, 3)}
-                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer relative"
                   style={{ height: "320px" }}
                 >
                   <Image
                     src="/zala2.jpg"
                     alt="Зала 2"
-                    width={400}
-                    height={320}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div
                   onClick={() => openLightbox(productImages, 4)}
-                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer"
+                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-[#E8E8E8]/30 cursor-pointer relative"
                   style={{ height: "320px" }}
                 >
                   <Image
                     src="/product6.jpg"
                     alt="Продукт 4"
-                    width={400}
-                    height={320}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -901,6 +899,7 @@ export default function Subitiya() {
                   width={400}
                   height={300}
                   className="w-full h-auto object-cover"
+                  style={{ height: "auto" }}
                 />
               </div>
               
@@ -915,6 +914,7 @@ export default function Subitiya() {
                   width={400}
                   height={300}
                   className="w-full h-auto object-cover"
+                  style={{ height: "auto" }}
                 />
               </div>
               
@@ -929,6 +929,7 @@ export default function Subitiya() {
                   width={400}
                   height={300}
                   className="w-full h-auto object-cover"
+                  style={{ height: "auto" }}
                 />
               </div>
             </div>
@@ -1052,6 +1053,7 @@ export default function Subitiya() {
                 width={1200}
                 height={800}
                 className="max-w-full max-h-[90vh] object-contain"
+                style={{ height: "auto" }}
                 priority
               />
               {/* Image counter */}

@@ -121,6 +121,7 @@ export default function ExhibitionGallery({
                   width={400}
                   height={300}
                   className="w-full h-full object-cover"
+                  style={{ width: "auto" }}
                 />
               )}
             </div>
@@ -234,6 +235,7 @@ export default function ExhibitionGallery({
                   width={1200}
                   height={800}
                   className="max-w-full max-h-[90vh] object-contain"
+                  style={{ height: "auto" }}
                   priority
                 />
               )}

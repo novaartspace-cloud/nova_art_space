@@ -45,6 +45,7 @@ export default function Navigation() {
                 width={150}
                 height={60}
                 className="h-auto transition-transform duration-300 group-hover:scale-105"
+                style={{ height: "auto" }}
                 priority
               />
             </Link>
