@@ -37,7 +37,10 @@ export default function GoogleAnalytics() {
       // Update gtag consent if it's already loaded
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('consent', 'update', {
-          'analytics_storage': analyticsConsent ? 'granted' : 'denied'
+          'analytics_storage': analyticsConsent ? 'granted' : 'denied',
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied'
         });
       } else if (analyticsConsent && !scriptLoadedRef.current) {
         // Load script if consent granted but script not loaded
@@ -67,7 +70,10 @@ export default function GoogleAnalytics() {
       script2.id = 'google-analytics-dynamic';
       script2.innerHTML = `
         gtag('consent', 'update', {
-          'analytics_storage': 'granted'
+          'analytics_storage': 'granted',
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied'
         });
         
         gtag('config', '${GA_MEASUREMENT_ID}', {
@@ -153,6 +159,8 @@ export default function GoogleAnalytics() {
             gtag('consent', 'default', {
               'analytics_storage': analyticsConsent,
               'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
               'wait_for_update': 500,
             });
             
@@ -179,7 +187,10 @@ export default function GoogleAnalytics() {
                 // Update consent to granted if user has accepted
                 if (${consentGranted}) {
                   gtag('consent', 'update', {
-                    'analytics_storage': 'granted'
+                    'analytics_storage': 'granted',
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied'
                   });
                 }
                 
