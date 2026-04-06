@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import NewsGallery from "../../components/NewsGallery";
 import { NewsGalleryProvider } from "../../components/NewsGalleryContext";
 import NewsLightbox from "../../components/NewsLightbox";
+import type { Metadata } from "next";
+import { absoluteOgImageUrl, siteConfig } from "../../lib/site-config";
 
 // Force dynamic rendering to always fetch fresh data
 export const dynamic = "force-dynamic";
@@ -13,6 +15,63 @@ export const revalidate = 0;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+function buildNewsDescription(
+  subtitle: string,
+  text: string,
+  title: string
+): string {
+  if (subtitle?.trim()) return subtitle.trim().slice(0, 200);
+  const first = text?.split("\n").find((p) => p.trim());
+  if (first) return first.trim().slice(0, 200);
+  return title;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const newsItem = await getNewsBySlug(slug);
+  if (!newsItem || newsItem.position === 1000) {
+    notFound();
+  }
+  const description = buildNewsDescription(
+    newsItem.subtitle,
+    newsItem.text,
+    newsItem.title
+  );
+  const imageUrl = absoluteOgImageUrl(
+    newsItem.mainImage || newsItem.images?.[0]
+  );
+  const pageUrl = `${siteConfig.url}/novini/${slug}`;
+  return {
+    title: newsItem.title,
+    description,
+    openGraph: {
+      title: newsItem.title,
+      description,
+      url: pageUrl,
+      siteName: siteConfig.name,
+      locale: "bg_BG",
+      type: "article",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: newsItem.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: newsItem.title,
+      description,
+      images: [imageUrl],
+    },
+    alternates: { canonical: pageUrl },
+  };
 }
 
 export default async function NewsDetail({ params }: PageProps) {

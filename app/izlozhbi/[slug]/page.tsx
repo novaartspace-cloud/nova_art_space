@@ -1,11 +1,13 @@
 import Navigation from "../../components/Navigation";
 import ScrollAnimation from "../../components/ScrollAnimation";
 import Link from "next/link";
-import { IconCalendar, IconLocation, IconParty } from "../../components/Icons";
+import { IconCalendar, IconLocation } from "../../components/Icons";
 import { getExhibitionBySlug } from "../../lib/exhibitions";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import ExhibitionGallery from "../../components/ExhibitionGallery";
+import type { Metadata } from "next";
+import { absoluteOgImageUrl, siteConfig } from "../../lib/site-config";
 
 // Force dynamic rendering to always fetch fresh data
 export const dynamic = "force-dynamic";
@@ -13,6 +15,63 @@ export const revalidate = 0;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+function buildExhibitionDescription(
+  subtitle: string,
+  text: string,
+  title: string
+): string {
+  if (subtitle?.trim()) return subtitle.trim().slice(0, 200);
+  const first = text?.split("\n").find((p) => p.trim());
+  if (first) return first.trim().slice(0, 200);
+  return title;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const exhibition = await getExhibitionBySlug(slug);
+  if (!exhibition || exhibition.position === 1000) {
+    notFound();
+  }
+  const description = buildExhibitionDescription(
+    exhibition.subtitle,
+    exhibition.text,
+    exhibition.title
+  );
+  const imageUrl = absoluteOgImageUrl(
+    exhibition.mainImage || exhibition.images?.[0]
+  );
+  const pageUrl = `${siteConfig.url}/izlozhbi/${slug}`;
+  return {
+    title: exhibition.title,
+    description,
+    openGraph: {
+      title: exhibition.title,
+      description,
+      url: pageUrl,
+      siteName: siteConfig.name,
+      locale: "bg_BG",
+      type: "website",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: exhibition.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: exhibition.title,
+      description,
+      images: [imageUrl],
+    },
+    alternates: { canonical: pageUrl },
+  };
 }
 
 export default async function ExhibitionDetail({ params }: PageProps) {

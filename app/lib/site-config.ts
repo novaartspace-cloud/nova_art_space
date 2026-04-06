@@ -18,6 +18,16 @@ export const getSiteUrl = (): string => {
   return 'https://novaartspace.com'; // Default fallback
 };
 
+/** Absolute URL for og:image / Twitter cards (Facebook requires a full URL). */
+export function absoluteOgImageUrl(imageUrl: string | undefined | null): string {
+  const base = getSiteUrl();
+  const fallback = `${base}/logo.jpg`;
+  const raw = imageUrl?.trim();
+  if (!raw) return fallback;
+  if (raw.startsWith('http://') || raw.startsWith('https://')) return raw;
+  return raw.startsWith('/') ? `${base}${raw}` : `${base}/${raw}`;
+}
+
 export const siteConfig = {
   url: getSiteUrl(),
   name: 'nOva art space',
