@@ -7,15 +7,20 @@ export const getSiteUrl = (): string => {
     const url = process.env.NEXT_PUBLIC_SITE_URL.trim();
     return url.replace(/\/$/, ''); // Remove trailing slash
   }
-  
+
   // Fallback for local development
   if (process.env.NODE_ENV === 'development') {
     return 'http://localhost:3000';
   }
-  
-  // For production, return a default (will be overridden by Vercel automatically)
-  // In production, Vercel sets VERCEL_URL automatically
-  return 'https://novaartspace.com'; // Default fallback
+
+  // Vercel sets VERCEL_URL (e.g. project.vercel.app) — valid HTTPS for og:image etc.
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl) {
+    return `https://${vercelUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}`;
+  }
+
+  // Public site lives on .bg; .com may not serve /public assets (breaks Facebook og:image).
+  return 'https://www.novaartspace.bg';
 };
 
 /** Absolute URL for og:image / Twitter cards (Facebook requires a full URL). */
